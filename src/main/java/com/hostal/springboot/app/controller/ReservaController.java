@@ -51,7 +51,14 @@ public class ReservaController {
 		return "reservalist";
 	}
 	
-	@GetMapping(value = "/save/{id}")
+	@RequestMapping("/reserva")
+	public String reserva(Model model) {
+		model.addAttribute("listHuesped", huespedService.getAll());
+		model.addAttribute("list", reservaService.getAll());
+		return "reserva";
+	}
+	
+	@GetMapping(value = "/reserva/{id}")
 	public String Showsave(@PathVariable("id") Long id, Model model) {
 		if (id != null && id != 0) {
 			model.addAttribute("reserva" , reservaService.get(id));
@@ -67,7 +74,7 @@ public class ReservaController {
 		return "reserva";
 	}
 	
-	@RequestMapping(value = "/save", method= RequestMethod.POST)
+	@RequestMapping(value = "/reserva", method= RequestMethod.POST)
 	public String save (@Valid Reserva reserva,Habitacion habitaciones, BindingResult result, Model model, @RequestParam(value = "ReservaHabitacionId", required = true) int re,
 			@RequestParam(value = "huespedId", required = true) long cli,@RequestParam(value = "tipoPagoId", required = true) long tip) {
 		Habitacion h = habitacionService.get(re);

@@ -36,9 +36,9 @@
 						<div class="form-group">
 							<label for="tipo">Cliente:</label> <br> 
 							<select class="js-example-basic-single" th:name="ClienteId">
-								<option th:each="cliente : ${clientes}"
+								<option th:each="cliente : ${listHuesped}"
 									th:value="${cliente.run}"
-									th:text="${habitacion.tipo}"></option>
+									th:text="${cliente.run}"></option>
 							</select>
 						</div>
 						<div class="form-group">
