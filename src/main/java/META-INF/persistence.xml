@@ -4,7 +4,6 @@
 		<class>com.hostal.springboot.app.model.Habitacion</class>
 		<class>com.hostal.springboot.app.model.Huesped</class>
 		<class>com.hostal.springboot.app.model.Reserva</class>
-		<class>com.hostal.springboot.app.model.ReservaHuesped</class>
 		<class>com.hostal.springboot.app.model.Servicio</class>
 		<class>com.hostal.springboot.app.model.ServicioHabitacion</class>
 		<class>com.hostal.springboot.app.model.Temporada</class>

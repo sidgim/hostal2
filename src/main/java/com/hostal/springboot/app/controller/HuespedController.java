@@ -13,42 +13,42 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hostal.springboot.app.model.Habitacion;
+import com.hostal.springboot.app.model.Huesped;
 import com.hostal.springboot.app.model.Temporada;
 import com.hostal.springboot.app.services.HabitacionService;
+import com.hostal.springboot.app.services.HuespedService;
 import com.hostal.springboot.app.services.TemporadaService;
 
 @Controller
-public class TemporadaController {
+public class HuespedController {
 	@Autowired
-	private TemporadaService temporadaService;
-	@Autowired
-	private HabitacionService habitacionService;
+	private HuespedService huespedService;
 	/*
 	
-	@RequestMapping("/")
-	public String temporada(Model model) {
-		model.addAttribute("list", temporadaService.getAll());
-		return "index";
+	@RequestMapping("/formulario-cliente")
+	public String huesped(Model model) {
+		model.addAttribute("list", huespedService.getAll());
+		return "reserva";
 	}
-	@GetMapping("/save/{id}")
-	public String Showsave(@PathVariable ("id") Integer id, Model model) {
+	@GetMapping("/formulario-cliente/{id}")
+	public String Showsave(@PathVariable ("id") Long id, Model model) {
 
 		if (id != null && id != 0) {
-			model.addAttribute("temporada" , temporadaService.get(id));
+			model.addAttribute("temporada" , huespedService.get(id));
 		}else {
-			model.addAttribute("temporada", new Temporada());
+			model.addAttribute("temporada", new Huesped());
 		}
-		return "save";
+		return "reserva";
 	}
-	@PostMapping("/save")
-	public String save (Temporada temporada, Model model) {
-		temporadaService.save(temporada);	
+	@PostMapping("/formulario-cliente")
+	public String save (Huesped huesped, Model model) {
+		huespedService.save(huesped);	
 		return "redirect:/";
 	}
 	
 	@GetMapping("/delete/{id}")
-	public String delete (@PathVariable Integer id , Model model) {
-		temporadaService.delete(id);
+	public String delete (@PathVariable Long id , Model model) {
+		huespedService.delete(id);
 			return "redirect:/";
 	}*/
 

@@ -18,8 +18,6 @@ public class Habitacion implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idHabitacion;
 
-	private byte estado;
-
 	private int numero;
 
 	private double precio;
@@ -32,7 +30,7 @@ public class Habitacion implements Serializable {
 	private Temporada temporada;
 
 	//bi-directional many-to-one association to ServicioHabitacion
-	@OneToMany(mappedBy="habitacion" , cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="habitacion",cascade = CascadeType.ALL)
 	private List<ServicioHabitacion> servicioHabitacions;
 
 	//bi-directional many-to-one association to ReservaHabitacion
@@ -48,14 +46,6 @@ public class Habitacion implements Serializable {
 
 	public void setIdHabitacion(int idHabitacion) {
 		this.idHabitacion = idHabitacion;
-	}
-
-	public byte getEstado() {
-		return this.estado;
-	}
-
-	public void setEstado(byte estado) {
-		this.estado = estado;
 	}
 
 	public int getNumero() {

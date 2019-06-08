@@ -25,7 +25,7 @@ public class TipoPago implements Serializable {
 	private String tipo;
 
 	//bi-directional many-to-one association to Reserva
-	@OneToMany(mappedBy="tipoPago" , cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="tipoPago",cascade = CascadeType.ALL)
 	private List<Reserva> reservas;
 
 	public TipoPago() {

@@ -25,17 +25,18 @@ public class Reserva implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fechaSalida;
 
+	//bi-directional many-to-one association to Huesped
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Huesped_run")
+	private Huesped huesped;
+
 	//bi-directional many-to-one association to TipoPago
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="TipoPago_idTipoPago")
 	private TipoPago tipoPago;
 
-	//bi-directional many-to-one association to ReservaHuesped
-	@OneToMany(mappedBy="reserva" , cascade = CascadeType.ALL)
-	private List<ReservaHuesped> reservaHuespeds;
-
 	//bi-directional many-to-one association to ReservaHabitacion
-	@OneToMany(mappedBy="reserva" , cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="reserva",cascade = CascadeType.ALL)
 	private List<ReservaHabitacion> reservaHabitacions;
 
 	public Reserva() {
@@ -65,34 +66,20 @@ public class Reserva implements Serializable {
 		this.fechaSalida = fechaSalida;
 	}
 
+	public Huesped getHuesped() {
+		return this.huesped;
+	}
+
+	public void setHuesped(Huesped huesped) {
+		this.huesped = huesped;
+	}
+
 	public TipoPago getTipoPago() {
 		return this.tipoPago;
 	}
 
 	public void setTipoPago(TipoPago tipoPago) {
 		this.tipoPago = tipoPago;
-	}
-
-	public List<ReservaHuesped> getReservaHuespeds() {
-		return this.reservaHuespeds;
-	}
-
-	public void setReservaHuespeds(List<ReservaHuesped> reservaHuespeds) {
-		this.reservaHuespeds = reservaHuespeds;
-	}
-
-	public ReservaHuesped addReservaHuesped(ReservaHuesped reservaHuesped) {
-		getReservaHuespeds().add(reservaHuesped);
-		reservaHuesped.setReserva(this);
-
-		return reservaHuesped;
-	}
-
-	public ReservaHuesped removeReservaHuesped(ReservaHuesped reservaHuesped) {
-		getReservaHuespeds().remove(reservaHuesped);
-		reservaHuesped.setReserva(null);
-
-		return reservaHuesped;
 	}
 
 	public List<ReservaHabitacion> getReservaHabitacions() {

@@ -21,7 +21,7 @@ public class Temporada implements Serializable {
 	private String tipo;
 
 	//bi-directional many-to-one association to Habitacion
-	@OneToMany(mappedBy="temporada", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="temporada",cascade = CascadeType.ALL)
 	private List<Habitacion> habitacions;
 
 	public Temporada() {

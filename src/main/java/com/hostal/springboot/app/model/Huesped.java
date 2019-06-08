@@ -26,9 +26,9 @@ public class Huesped implements Serializable {
 
 	private String telefono;
 
-	//bi-directional many-to-one association to ReservaHuesped
-	@OneToMany(mappedBy="huesped" ,cascade = CascadeType.ALL)
-	private List<ReservaHuesped> reservaHuespeds;
+	//bi-directional many-to-one association to Reserva
+	@OneToMany(mappedBy="huesped",cascade = CascadeType.ALL)
+	private List<Reserva> reservas;
 
 	public Huesped() {
 	}
@@ -73,26 +73,26 @@ public class Huesped implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public List<ReservaHuesped> getReservaHuespeds() {
-		return this.reservaHuespeds;
+	public List<Reserva> getReservas() {
+		return this.reservas;
 	}
 
-	public void setReservaHuespeds(List<ReservaHuesped> reservaHuespeds) {
-		this.reservaHuespeds = reservaHuespeds;
+	public void setReservas(List<Reserva> reservas) {
+		this.reservas = reservas;
 	}
 
-	public ReservaHuesped addReservaHuesped(ReservaHuesped reservaHuesped) {
-		getReservaHuespeds().add(reservaHuesped);
-		reservaHuesped.setHuesped(this);
+	public Reserva addReserva(Reserva reserva) {
+		getReservas().add(reserva);
+		reserva.setHuesped(this);
 
-		return reservaHuesped;
+		return reserva;
 	}
 
-	public ReservaHuesped removeReservaHuesped(ReservaHuesped reservaHuesped) {
-		getReservaHuespeds().remove(reservaHuesped);
-		reservaHuesped.setHuesped(null);
+	public Reserva removeReserva(Reserva reserva) {
+		getReservas().remove(reserva);
+		reserva.setHuesped(null);
 
-		return reservaHuesped;
+		return reserva;
 	}
 
 }
