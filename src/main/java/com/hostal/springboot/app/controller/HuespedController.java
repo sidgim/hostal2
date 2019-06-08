@@ -23,33 +23,34 @@ import com.hostal.springboot.app.services.TemporadaService;
 public class HuespedController {
 	@Autowired
 	private HuespedService huespedService;
-	/*
 	
-	@RequestMapping("/formulario-cliente")
+	
+	@RequestMapping("/formulario-huesped")
 	public String huesped(Model model) {
 		model.addAttribute("list", huespedService.getAll());
-		return "reserva";
+		return "formulario-huesped";
 	}
-	@GetMapping("/formulario-cliente/{id}")
+	
+	@GetMapping("/formulario-huesped/{id}")
 	public String Showsave(@PathVariable ("id") Long id, Model model) {
 
 		if (id != null && id != 0) {
-			model.addAttribute("temporada" , huespedService.get(id));
+			model.addAttribute("huesped" , huespedService.get(id));
 		}else {
-			model.addAttribute("temporada", new Huesped());
+			model.addAttribute("huesped", new Huesped());
 		}
-		return "reserva";
+		return "formulario-huesped";
 	}
-	@PostMapping("/formulario-cliente")
+	@PostMapping("/formulario-huesped")
 	public String save (Huesped huesped, Model model) {
 		huespedService.save(huesped);	
-		return "redirect:/";
+		return "redirect:/reserva";
 	}
 	
 	@GetMapping("/delete/{id}")
 	public String delete (@PathVariable Long id , Model model) {
 		huespedService.delete(id);
 			return "redirect:/";
-	}*/
+	}
 
 }

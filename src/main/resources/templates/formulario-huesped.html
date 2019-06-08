@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<h2>Agregar Huesped</h2>
+		<form action="#" th:action="@{/formulario-huesped}" th:object="${huesped}" method="post">
+			<input type="hidden" th:field="*{idHuesped}" name="id" id="id">
+		
+			<div class="form-group">
+				<label for="nombre">run</label> <input type="text"
+					class="form-control" id="tipo" th:field="*{run}" name="tipo">
+			</div>
+			<div class="form-group">
+				<label for="nombre">nombre</label> <input type="text"
+					class="form-control" id="tipo" th:field="*{nombre}" name="tipo">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">apellido</label> <input type="text"
+					class="form-control" id="tipo" th:field="*{apellido}" name="tipo">
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">correo</label> <input type="text"
+					class="form-control" id="tipo" th:field="*{correo}" name="tipo">
+			</div>
+				
+			
+			<div class="form-group">
+				<label for="nombre">telefono</label> <input type="text"
+					class="form-control" id="tipo" th:field="*{telefono}" name="tipo">
+			</div>
+			<br>
+			<button type="submit" class="btn btn-success">Guardar</button>
+			<a href="/reserva" class="btn btn-primary">Cancelar</a>
+		</form>
+</body>
+</html>

@@ -27,7 +27,7 @@ public class Reserva implements Serializable {
 
 	//bi-directional many-to-one association to Huesped
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="Huesped_run")
+	@JoinColumn(name="Huesped_idHuesped")
 	private Huesped huesped;
 
 	//bi-directional many-to-one association to TipoPago

@@ -16,13 +16,15 @@ public class Huesped implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int run;
+	private int idHuesped;
 
 	private String apellido;
 
 	private String correo;
 
 	private String nombre;
+
+	private String run;
 
 	private String telefono;
 
@@ -33,12 +35,12 @@ public class Huesped implements Serializable {
 	public Huesped() {
 	}
 
-	public int getRun() {
-		return this.run;
+	public int getIdHuesped() {
+		return this.idHuesped;
 	}
 
-	public void setRun(int run) {
-		this.run = run;
+	public void setIdHuesped(int idHuesped) {
+		this.idHuesped = idHuesped;
 	}
 
 	public String getApellido() {
@@ -63,6 +65,14 @@ public class Huesped implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public String getRun() {
+		return this.run;
+	}
+
+	public void setRun(String run) {
+		this.run = run;
 	}
 
 	public String getTelefono() {
