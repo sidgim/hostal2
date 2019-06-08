@@ -3,7 +3,6 @@ package com.hostal.springboot.app.model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 
 /**
@@ -25,6 +24,11 @@ public class Reserva implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fechaSalida;
 
+	//bi-directional many-to-one association to Habitacion
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Habitacion_idHabitacion")
+	private Habitacion habitacion;
+
 	//bi-directional many-to-one association to Huesped
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Huesped_idHuesped")
@@ -34,10 +38,6 @@ public class Reserva implements Serializable {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="TipoPago_idTipoPago")
 	private TipoPago tipoPago;
-
-	//bi-directional many-to-one association to ReservaHabitacion
-	@OneToMany(mappedBy="reserva",cascade = CascadeType.ALL)
-	private List<ReservaHabitacion> reservaHabitacions;
 
 	public Reserva() {
 	}
@@ -66,6 +66,14 @@ public class Reserva implements Serializable {
 		this.fechaSalida = fechaSalida;
 	}
 
+	public Habitacion getHabitacion() {
+		return this.habitacion;
+	}
+
+	public void setHabitacion(Habitacion habitacion) {
+		this.habitacion = habitacion;
+	}
+
 	public Huesped getHuesped() {
 		return this.huesped;
 	}
@@ -80,28 +88,6 @@ public class Reserva implements Serializable {
 
 	public void setTipoPago(TipoPago tipoPago) {
 		this.tipoPago = tipoPago;
-	}
-
-	public List<ReservaHabitacion> getReservaHabitacions() {
-		return this.reservaHabitacions;
-	}
-
-	public void setReservaHabitacions(List<ReservaHabitacion> reservaHabitacions) {
-		this.reservaHabitacions = reservaHabitacions;
-	}
-
-	public ReservaHabitacion addReservaHabitacion(ReservaHabitacion reservaHabitacion) {
-		getReservaHabitacions().add(reservaHabitacion);
-		reservaHabitacion.setReserva(this);
-
-		return reservaHabitacion;
-	}
-
-	public ReservaHabitacion removeReservaHabitacion(ReservaHabitacion reservaHabitacion) {
-		getReservaHabitacions().remove(reservaHabitacion);
-		reservaHabitacion.setReserva(null);
-
-		return reservaHabitacion;
 	}
 
 }

@@ -44,13 +44,13 @@ public class HuespedController {
 	@PostMapping("/formulario-huesped")
 	public String save (Huesped huesped, Model model) {
 		huespedService.save(huesped);	
-		return "redirect:/reserva";
+		return "redirect:/verReservas";
 	}
 	
-	@GetMapping("/delete1/{id}")
+	@RequestMapping("/delete1/{id}")
 	public String delete (@PathVariable Integer id , Model model) {
 		huespedService.delete(id);
-			return "redirect:/";
+			return "redirect:/verReservas";
 	}
 
 }

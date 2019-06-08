@@ -8,6 +8,5 @@
 		<class>com.hostal.springboot.app.model.ServicioHabitacion</class>
 		<class>com.hostal.springboot.app.model.Temporada</class>
 		<class>com.hostal.springboot.app.model.TipoPago</class>
-		<class>com.hostal.springboot.app.model.ReservaHabitacion</class>
 	</persistence-unit>
 </persistence>

@@ -29,13 +29,13 @@ public class Habitacion implements Serializable {
 	@JoinColumn(name="Temporada_idTemporada")
 	private Temporada temporada;
 
+	//bi-directional many-to-one association to Reserva
+	@OneToMany(mappedBy="habitacion",cascade = CascadeType.ALL)
+	private List<Reserva> reservas;
+
 	//bi-directional many-to-one association to ServicioHabitacion
 	@OneToMany(mappedBy="habitacion",cascade = CascadeType.ALL)
 	private List<ServicioHabitacion> servicioHabitacions;
-
-	//bi-directional many-to-one association to ReservaHabitacion
-	@OneToMany(mappedBy="habitacion",cascade = CascadeType.ALL)
-	private List<ReservaHabitacion> reservaHabitacions;
 
 	public Habitacion() {
 	}
@@ -80,6 +80,28 @@ public class Habitacion implements Serializable {
 		this.temporada = temporada;
 	}
 
+	public List<Reserva> getReservas() {
+		return this.reservas;
+	}
+
+	public void setReservas(List<Reserva> reservas) {
+		this.reservas = reservas;
+	}
+
+	public Reserva addReserva(Reserva reserva) {
+		getReservas().add(reserva);
+		reserva.setHabitacion(this);
+
+		return reserva;
+	}
+
+	public Reserva removeReserva(Reserva reserva) {
+		getReservas().remove(reserva);
+		reserva.setHabitacion(null);
+
+		return reserva;
+	}
+
 	public List<ServicioHabitacion> getServicioHabitacions() {
 		return this.servicioHabitacions;
 	}
@@ -100,28 +122,6 @@ public class Habitacion implements Serializable {
 		servicioHabitacion.setHabitacion(null);
 
 		return servicioHabitacion;
-	}
-
-	public List<ReservaHabitacion> getReservaHabitacions() {
-		return this.reservaHabitacions;
-	}
-
-	public void setReservaHabitacions(List<ReservaHabitacion> reservaHabitacions) {
-		this.reservaHabitacions = reservaHabitacions;
-	}
-
-	public ReservaHabitacion addReservaHabitacion(ReservaHabitacion reservaHabitacion) {
-		getReservaHabitacions().add(reservaHabitacion);
-		reservaHabitacion.setHabitacion(this);
-
-		return reservaHabitacion;
-	}
-
-	public ReservaHabitacion removeReservaHabitacion(ReservaHabitacion reservaHabitacion) {
-		getReservaHabitacions().remove(reservaHabitacion);
-		reservaHabitacion.setHabitacion(null);
-
-		return reservaHabitacion;
 	}
 
 }

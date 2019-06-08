@@ -22,11 +22,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hostal.springboot.app.model.Habitacion;
 import com.hostal.springboot.app.model.Huesped;
 import com.hostal.springboot.app.model.Reserva;
-import com.hostal.springboot.app.model.ReservaHabitacion;
 import com.hostal.springboot.app.model.TipoPago;
 import com.hostal.springboot.app.services.HabitacionService;
 import com.hostal.springboot.app.services.HuespedService;
-import com.hostal.springboot.app.services.ReservaHabitacionService;
 import com.hostal.springboot.app.services.ReservaService;
 import com.hostal.springboot.app.services.TipoPagoService;
 
@@ -41,8 +39,7 @@ public class ReservaController {
 	private TipoPagoService tipoPagoService;
 	@Autowired
 	private HuespedService huespedService;
-	@Autowired
-	private ReservaHabitacionService reservaHabitacionService;
+
 
 	@GetMapping(value = "/list")
 	public String list(Model model) {
@@ -67,30 +64,27 @@ public class ReservaController {
 			model.addAttribute("reservas" , reservaService.get(id));
 			model.addAttribute("habitacion" , habitacionService.getAll());
 			model.addAttribute("tipoP", tipoPagoService.getAll());
-			model.addAttribute("huesped", huespedService);
-			model.addAttribute("reservaHabitaciones", reservaHabitacionService);
+			model.addAttribute("huespedes", huespedService.getAll());
+		
 		}else {
 			model.addAttribute("reservas", new Reserva());
 			model.addAttribute("habitacion" , habitacionService.getAll());
 			model.addAttribute("tipoP", tipoPagoService.getAll());
-			model.addAttribute("huesped", huespedService);
-			model.addAttribute("reservaHabitaciones", reservaHabitacionService);
+			model.addAttribute("huespedes", huespedService.getAll());
+		
 		}
 		return "reserva";
 	}
 	
-	@RequestMapping(value = "/reserva", method= RequestMethod.POST)
-	public String save (@Valid Reserva reserva,Habitacion habitaciones, BindingResult result, Model model, @RequestParam(value = "ReservaHabitacionId", required = true) int re,
+	@PostMapping(value = "/reserva")
+	public String save (Reserva reserva, Model model, @RequestParam(value = "HabitacionId", required = true) int re,
 			@RequestParam(value = "huespedId", required = true) int cli,@RequestParam(value = "tipoPagoId", required = true) int tip) {
 		Habitacion h = habitacionService.get(re);
 		Huesped hu = huespedService.get(cli);
 		TipoPago t = tipoPagoService.get(tip);
 		reserva.setHuesped(hu);
 		reserva.setTipoPago(t);
-		ReservaHabitacion reservaHabi = new ReservaHabitacion();
-		reservaHabi.setHabitacion(h);
-		reservaHabi.setReserva(reserva);
-		reservaHabitacionService.save(reservaHabi);
+		reserva.setHabitacion(h);
 		reservaService.save(reserva);
 		
 		return "redirect:/verReservas";

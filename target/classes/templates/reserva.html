@@ -7,7 +7,7 @@
 	th:href="@{/css/bootstrap.css}">
 </head>
 <body>
-	<header th:replace="layout/header :: header"></header>
+	
 	<!-- <br>
 	<br>
 	<div>
@@ -75,15 +75,14 @@
 			<a href="/formulario-huesped/0" class="btn btn-primary">Agregar Huesped</a>
 			</div>
 			<br>
-			
 					<form action="#" th:action="@{/reserva}" th:object="${reservas}" method="post">
-					
-				<select th:name="ReservaHabitacionId">
-    <option th:each="habitacioneR : ${reservaHabitaciones}" th:value="${habitacioneR.habibtacion.idHabitacion}" th:text="${habitacionR.habitacion.tipo}"> </option>
+					<div class="form-group">
+				<select th:name="HabitacionId">
+    <option th:each="habitaciones : ${habitacion}" th:value="${habitaciones.idHabitacion}" th:text="${habitaciones.tipo}"> </option>
 </select>
 
 <select th:name="huespedId">
-    <option th:each="huesp : ${huesped}" th:value="${huesp.idHuesped}" th:text="${huesp.run}"> </option>
+    <option th:each="huesp : ${huespedes}" th:value="${huesp.idHuesped}" th:text="${huesp.run}"> </option>
 </select>
 
 <select th:name="tipoPagoId">
@@ -103,7 +102,8 @@
 			
 			<br>
 			<button type="submit" class="btn btn-success">Guardar</button>
-			<a href="/verReserva" class="btn btn-primary">Cancelar</a>
+			<a href="/verReservas" class="btn btn-primary">Cancelar</a>
+			</div>
 		</form>
 			
 		</div>
