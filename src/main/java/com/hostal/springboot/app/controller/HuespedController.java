@@ -32,7 +32,7 @@ public class HuespedController {
 	}
 	
 	@GetMapping("/formulario-huesped/{id}")
-	public String Showsave(@PathVariable ("id") Long id, Model model) {
+	public String Showsave(@PathVariable ("id") Integer id, Model model) {
 
 		if (id != null && id != 0) {
 			model.addAttribute("huesped" , huespedService.get(id));
@@ -47,8 +47,8 @@ public class HuespedController {
 		return "redirect:/reserva";
 	}
 	
-	@GetMapping("/delete/{id}")
-	public String delete (@PathVariable Long id , Model model) {
+	@GetMapping("/delete1/{id}")
+	public String delete (@PathVariable Integer id , Model model) {
 		huespedService.delete(id);
 			return "redirect:/";
 	}

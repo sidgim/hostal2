@@ -12,11 +12,11 @@ import com.hostal.springboot.app.repository.ReservaHabitacionRepository;
 
 
 @Service
-public class  ReservaHabitacionServiceImp extends GenericServiceImp<ReservaHabitacion, Long> implements ReservaHabitacionService {
+public class  ReservaHabitacionServiceImp extends GenericServiceImp<ReservaHabitacion, Integer> implements ReservaHabitacionService {
 	@Autowired
 	private ReservaHabitacionRepository reservaHabitacionRepository;
 	@Override
-	public CrudRepository<ReservaHabitacion, Long> getRepository() {
+	public CrudRepository<ReservaHabitacion, Integer> getRepository() {
 		return reservaHabitacionRepository;
 	}
 

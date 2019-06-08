@@ -24,20 +24,14 @@ public class HabitacionController {
 	private HabitacionService habitacionService;
 	@Autowired
 	private TemporadaService temporadaService;
-	@Autowired
-	private ReservaService reservaService;
+
 	
-	@RequestMapping("/")
+	@RequestMapping("/index")
 	public String habitacion(Model model) {
 		model.addAttribute("list", habitacionService.getAll());
 		return "index";
 	}
-	@RequestMapping("/reserva")
-	public String reserva(Model model) {
-		model.addAttribute("habitaciones", habitacionService.getAll());
-		model.addAttribute("list", reservaService.getAll());
-		return "reserva";
-	}
+
 	
 	@GetMapping(value = "/save/{id}")
 	public String Showsave(@PathVariable("id") Integer id, Model model) {
@@ -53,18 +47,18 @@ public class HabitacionController {
 	}
 	
 	@PostMapping(value = "/save")
-	public String save (Habitacion habitacion, Model model , @RequestParam(value = "temporadaId", required = true) int temp) {
+	public String save (Habitacion habitacion, Model model , @RequestParam(value = "temporadaId", required = true) Integer temp) {
 		Temporada t = temporadaService.get(temp);
 		habitacion.setTemporada(t);
 		habitacionService.save(habitacion);	
-		return "redirect:/";
+		return "redirect:/index";
 		
 	}
 	
 	@RequestMapping(value = "/delete/{id}")
 	public String delete (@PathVariable Integer id , Model model) {
 		habitacionService.delete(id);
-			return "redirect:/";
+			return "redirect:/index";
 	}
 	
 	@RequestMapping("/acercade")

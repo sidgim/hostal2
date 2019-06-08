@@ -8,11 +8,11 @@ import com.hostal.springboot.app.commons.GenericServiceImp;
 import com.hostal.springboot.app.model.ServicioHabitacion;
 import com.hostal.springboot.app.repository.ServicioHabitacionRepository;
 @Service
-public class ServicioHabitacionServiceImp extends GenericServiceImp<ServicioHabitacion, Long> implements ServicioHabitacionService{
+public class ServicioHabitacionServiceImp extends GenericServiceImp<ServicioHabitacion, Integer> implements ServicioHabitacionService{
 	@Autowired
 	private ServicioHabitacionRepository servicioHabitacionRepository;
 	@Override
-	public CrudRepository<ServicioHabitacion, Long> getRepository() {
+	public CrudRepository<ServicioHabitacion, Integer> getRepository() {
 		return servicioHabitacionRepository;
 	}
 

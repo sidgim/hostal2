@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.hostal.springboot.app.model.Reserva;
 
-public interface ReservaRepository extends CrudRepository<Reserva, Long> {
+public interface ReservaRepository extends CrudRepository<Reserva, Integer> {
 
 }

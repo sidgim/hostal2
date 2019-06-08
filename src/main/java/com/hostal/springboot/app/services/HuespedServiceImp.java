@@ -9,12 +9,12 @@ import com.hostal.springboot.app.model.Huesped;
 import com.hostal.springboot.app.repository.HuespedRepository;
 
 @Service
-public class HuespedServiceImp extends GenericServiceImp<Huesped, Long> implements HuespedService {
+public class HuespedServiceImp extends GenericServiceImp<Huesped, Integer> implements HuespedService {
 
 	@Autowired
 	private HuespedRepository huespedRepository;
 	@Override
-	public CrudRepository<Huesped, Long> getRepository() {
+	public CrudRepository<Huesped, Integer> getRepository() {
 		return huespedRepository;
 	}
 

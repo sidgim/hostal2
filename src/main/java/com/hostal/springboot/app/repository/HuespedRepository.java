@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.hostal.springboot.app.model.Huesped;
 
-public interface HuespedRepository extends CrudRepository<Huesped, Long>{
+public interface HuespedRepository extends CrudRepository<Huesped, Integer>{
 
 }

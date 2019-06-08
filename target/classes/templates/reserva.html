@@ -3,11 +3,12 @@
 <head th:include = "layout/header :: head">
 <meta charset="UTF-8">
 <title>Reservas - Hostal Santa Mónica</title>
-
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
 </head>
 <body>
 	<header th:replace="layout/header :: header"></header>
-	<br>
+	<!-- <br>
 	<br>
 	<div>
 		<div class="container">
@@ -22,7 +23,8 @@
 			<div class="row">
 				<div class="block col-md-4 col-xs-4">
 					<br> <label class="titulo"> Datos de la Habitación </label> <br>
-					<form>
+					<form action="#" th:action="@{/reserva}" th:object="${reserva}"
+			method="post">
 						<div class="form-group">
 							<label for="tipo">Habitación:</label> <br> 
 							
@@ -35,12 +37,12 @@
 						</div>
 						<div class="form-group">
 							<label for="tipo">Cliente:</label> <br> 
-							<select class="js-example-basic-single" th:name="ClienteId">
-								<option th:each="cliente : ${listHuesped}"
-									th:value="${cliente.run}"
-									th:text="${cliente.run}"></option>
+							<select class="js-example-basic-single" th:name="huespedId">
+								<option th:each="cliente : ${huesped}"
+									th:value="${cliente.idHuesped}" th:text="${cliente.run}"></option>
 							</select>
 						</div>
+					
 						<div class="form-group">
 							<label for="fecha">Fecha de Entrada:</label><input
 								class="form-control item" type="text" id="fechaEntrada" value="">
@@ -58,9 +60,53 @@
 	<br>
 	<br>
 	<br>
-	<footer th:replace="layout/footer :: footer"></footer>
+
 	<script type="text/javascript">	$(document).ready(function() {
 	    $('.js-example-basic-single').select2();
-	});</script>
+	});</script>   -->
+	
+		<div class="container">
+			<br>
+			<div>
+			<a href="/reservalist" class="btn btn-primary">Listar Reservas</a>
+			</div>
+			<br>
+			<div>
+			<a href="/formulario-huesped/0" class="btn btn-primary">Agregar Huesped</a>
+			</div>
+			<br>
+			
+					<form action="#" th:action="@{/reserva}" th:object="${reservas}" method="post">
+					
+				<select th:name="ReservaHabitacionId">
+    <option th:each="habitacioneR : ${reservaHabitaciones}" th:value="${habitacioneR.habibtacion.idHabitacion}" th:text="${habitacionR.habitacion.tipo}"> </option>
+</select>
+
+<select th:name="huespedId">
+    <option th:each="huesp : ${huesped}" th:value="${huesp.idHuesped}" th:text="${huesp.run}"> </option>
+</select>
+
+<select th:name="tipoPagoId">
+    <option th:each="pago : ${tipoP}" th:value="${pago.idTipoPago}" th:text="${pago.tipo}">     </option>
+</select>
+					
+			<input type="hidden" th:field="*{idReserva}" name="id" id="id">
+		
+			<div class="form-group">
+				<label for="nombre">fecha entrada</label> <input type="text"
+					class="form-control" id="tipo" th:field="*{fechaEntrada}" name="tipo">
+			</div>
+			<div class="form-group">
+				<label for="nombre">fecha salida</label> <input type="text"
+					class="form-control" id="tipo" th:field="*{fechaSalida}" name="tipo">
+			</div>
+			
+			<br>
+			<button type="submit" class="btn btn-success">Guardar</button>
+			<a href="/verReserva" class="btn btn-primary">Cancelar</a>
+		</form>
+			
+		</div>
+			<footer th:replace="layout/footer :: footer"></footer>
 </body>
 </html>

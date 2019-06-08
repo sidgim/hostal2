@@ -31,7 +31,7 @@ import com.hostal.springboot.app.services.ReservaService;
 import com.hostal.springboot.app.services.TipoPagoService;
 
 @Controller
-@RequestMapping(value = "/reserva")
+
 public class ReservaController {
 	@Autowired
 	private ReservaService reservaService;
@@ -41,8 +41,10 @@ public class ReservaController {
 	private TipoPagoService tipoPagoService;
 	@Autowired
 	private HuespedService huespedService;
+	@Autowired
+	private ReservaHabitacionService reservaHabitacionService;
 
-	@GetMapping(value = {"/list","/"})
+	@GetMapping(value = "/list")
 	public String list(Model model) {
 		List<Reserva> lista = reservaService.getAll();
 		if(!lista.isEmpty())
@@ -51,32 +53,35 @@ public class ReservaController {
 		return "reservalist";
 	}
 	
-	@RequestMapping("/reserva")
+
+	@RequestMapping("/verReservas")
 	public String reserva(Model model) {
-		model.addAttribute("listHuesped", huespedService.getAll());
-		model.addAttribute("list", reservaService.getAll());
-		return "reserva";
+		model.addAttribute("habitaciones", habitacionService.getAll());
+		model.addAttribute("listR", reservaService.getAll());
+		return "verReservas";
 	}
 	
 	@GetMapping(value = "/reserva/{id}")
-	public String Showsave(@PathVariable("id") Long id, Model model) {
+	public String Showsave(@PathVariable("id") Integer id, Model model) {
 		if (id != null && id != 0) {
-			model.addAttribute("reserva" , reservaService.get(id));
+			model.addAttribute("reservas" , reservaService.get(id));
 			model.addAttribute("habitacion" , habitacionService.getAll());
 			model.addAttribute("tipoP", tipoPagoService.getAll());
 			model.addAttribute("huesped", huespedService);
+			model.addAttribute("reservaHabitaciones", reservaHabitacionService);
 		}else {
-			model.addAttribute("reserva", new Reserva());
+			model.addAttribute("reservas", new Reserva());
 			model.addAttribute("habitacion" , habitacionService.getAll());
 			model.addAttribute("tipoP", tipoPagoService.getAll());
 			model.addAttribute("huesped", huespedService);
+			model.addAttribute("reservaHabitaciones", reservaHabitacionService);
 		}
 		return "reserva";
 	}
 	
 	@RequestMapping(value = "/reserva", method= RequestMethod.POST)
 	public String save (@Valid Reserva reserva,Habitacion habitaciones, BindingResult result, Model model, @RequestParam(value = "ReservaHabitacionId", required = true) int re,
-			@RequestParam(value = "huespedId", required = true) long cli,@RequestParam(value = "tipoPagoId", required = true) long tip) {
+			@RequestParam(value = "huespedId", required = true) int cli,@RequestParam(value = "tipoPagoId", required = true) int tip) {
 		Habitacion h = habitacionService.get(re);
 		Huesped hu = huespedService.get(cli);
 		TipoPago t = tipoPagoService.get(tip);
@@ -85,15 +90,16 @@ public class ReservaController {
 		ReservaHabitacion reservaHabi = new ReservaHabitacion();
 		reservaHabi.setHabitacion(h);
 		reservaHabi.setReserva(reserva);
+		reservaHabitacionService.save(reservaHabi);
 		reservaService.save(reserva);
 		
-		return "reserva";
+		return "redirect:/verReservas";
 	}
 	
-	@GetMapping("/delete/{id}")
-	public String delete (@PathVariable Long id , Model model) {
+	@GetMapping("/deletes/{id}")
+	public String delete (@PathVariable Integer id , Model model) {
 			reservaService.delete(id);blob:https://web.whatsapp.com/5adaa5ee-88ea-4e1c-af3b-2cd042cb4e87
-			return "redirect:/";
+			return "redirect:/verReservas";
 	}
 	
 	private void InOrderF(List<Reserva> list){

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:replace="layout/header :: header"></header>
+
+<br><br>
+	<div class="container">
+		<br>
+		<div>
+			<a href="/reserva/0" class="btn btn-primary">Agregar</a>
+		</div>
+		<h2 th:if="${listR.isEmpty()}">No hay Reservas</h2>
+		<div th:if="${!listR.isEmpty()}">
+			<h2>Habitacion</h2>
+			<table class="table">
+				<thead>
+					<tr>
+
+						<th>Fecha Entrada</th>
+						<th>Fecha Salida</th>
+						<th>Tipo Pago</th>
+						<th>Run</th>
+						
+						
+
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="reserva : ${listR}">
+
+						
+						<td th:text="${reserva.fechaEntrada}">
+						<td th:text="${reserva.fechaSalida}">
+						<td th:text="${reserva.tipoPago.tipo}">
+						<td th:text="${reserva.huesped.run}">
+						
+						
+						<td><a class="btn btn-info"
+							th:href="@{/reserva/{id}(id=${reserva.idReserva})}">Editar</a></td>
+						<td><a class="btn btn-danger"
+							th:href="@{/deletes/{id}(id=${reserva.idReserva})}">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+
+<footer th:replace="layout/footer :: footer"></footer>
+</body>
+</html>

@@ -8,13 +8,13 @@ import com.hostal.springboot.app.commons.GenericServiceImp;
 import com.hostal.springboot.app.model.Reserva;
 import com.hostal.springboot.app.repository.ReservaRepository;
 @Service
-public class ReservaServiceImp extends GenericServiceImp<Reserva, Long> implements ReservaService {
+public class ReservaServiceImp extends GenericServiceImp<Reserva, Integer> implements ReservaService {
 	
 	@Autowired	
 	private ReservaRepository reservaRepository;
 	
 	@Override
-	public CrudRepository<Reserva, Long> getRepository() {
+	public CrudRepository<Reserva, Integer> getRepository() {
 
 		return reservaRepository;
 	}

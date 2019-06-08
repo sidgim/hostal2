@@ -8,11 +8,11 @@ import com.hostal.springboot.app.commons.GenericServiceImp;
 import com.hostal.springboot.app.model.TipoPago;
 import com.hostal.springboot.app.repository.TipoPagoRepository;
 @Service
-public class TipoPagoServiceImp extends GenericServiceImp<TipoPago, Long>implements TipoPagoService{
+public class TipoPagoServiceImp extends GenericServiceImp<TipoPago, Integer>implements TipoPagoService{
 	@Autowired
 	private TipoPagoRepository tipoPagoRepository;
 	@Override
-	public CrudRepository<TipoPago, Long> getRepository() {
+	public CrudRepository<TipoPago, Integer> getRepository() {
 		return tipoPagoRepository;
 	}
 
