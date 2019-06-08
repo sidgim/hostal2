@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>habitacion</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<header th:replace="layout/header :: header"></header>
+	<br><br>
+	<div class="container">
+		<br>
+		<div>
+			<a href="/save/0" class="btn btn-primary">Agregar</a>
+		</div>
+		<h2 th:if="${list.isEmpty()}">No hay Habitacion</h2>
+		<div th:if="${!list.isEmpty()}">
+			<h2>Habitacion</h2>
+			<table class="table">
+				<thead>
+					<tr>
+
+						<th>estado</th>
+						<th>numero</th>
+						<th>precio</th>
+						<th>tipo</th>
+						<th>tipo</th>
+
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="habitacion : ${list}">
+
+						<td th:text="${habitacion.estado}">
+						<td th:text="${habitacion.numero}">
+						<td th:text="${habitacion.precio}">
+						<td th:text="${habitacion.tipo}">
+						<td th:text="${habitacion.temporada.tipo}">
+						<td><a class="btn btn-info"
+							th:href="@{/save/{id}(id=${habitacion.idHabitacion})}">Editar</a></td>
+						<td><a class="btn btn-danger"
+							th:href="@{/delete/{id}(id=${habitacion.idHabitacion})}">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer th:replace="layout/footer :: footer"></footer>
+</body>
+</html>

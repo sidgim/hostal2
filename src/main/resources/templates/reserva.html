@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Reservas</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script th:src="@{/js/datepicker.js}" src=".../static/js/datepicker.js"></script>
+
+
+<link href="../static/css/style.css" rel="stylesheet"
+	th:href="@{/css/style.css}">
+</head>
+<body>
+	<header th:replace="layout/header :: header"></header>
+	<br>
+	<br>
+	<div>
+		<div class="container">
+			<br>
+			<div>
+				<a href="/reserva" class="btn btn-primary">Reservar</a> <a
+					href="/listreserva" class="btn btn-primary">Listar Reservas</a>
+			</div>
+			<br><br>
+			<div class="row">
+				<div class="block col-md-6">
+					<br> <label class="titulo"> Datos de la Habitación </label> <br>
+					<form>
+						<div class="form-group">
+							<label for="tipo">Habitación:</label> <br> <select
+								class="form-control item" th:name="habitacionId">
+								<option th:each="habitacion : ${habitaciones}"
+									th:value="${habitacion.idHabitacion}"
+									th:text="${habitacion.tipo}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="fecha">Fecha de Entrada:</label><input
+								class="form-control item" type="text" id="fechaEntrada" value="">
+						</div>
+						<div class="form-group">
+							<label for="fecha">Fecha de Salida:</label><input
+								class="form-control item" type="text" id="fechaSalida" value="">
+						</div>
+					</form>
+				</div>
+				<div class="block col-md-6">
+					<br> <label class="titulo"> Datos del Cliente </label> <br>
+					<form>
+						<div class="form-group">
+							<label for="name">Nombres</label><input class="form-control item"
+								type="text" id="name">
+						</div>
+						<div class="form-group">
+							<label for="lastname">Apellidos</label><input
+								class="form-control item" type="text" id="lastname">
+						</div>
+						<div class="form-group">
+							<label for="rut">RUT</label><input class="form-control item"
+								type="number" id="rut">
+						</div>
+						<div class="form-group">
+							<label for="phone">Teléfono</label><input
+								class="form-control item" type="text" id="phone">
+						</div>
+						<div class="form-group">
+							<label for="email">E-mail</label><input class="form-control item"
+								type="email" id="mail">
+						</div>
+					</form>
+				</div>
+			</div>
+			<button class="btn btn-primary btn-block" type="submit">Reservar</button>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer th:replace="layout/footer :: footer"></footer>
+</body>
+</html>

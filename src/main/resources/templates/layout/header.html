@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+<meta charset="UTF-8">
+<title>habitacion</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+<script src="https://code.iconify.design/1/1.0.2/iconify.min.js"></script>
+</head>
+<body>
+	<header th:fragment="header">
+		<nav
+			class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+			<div class="container">
+				<a class="navbar-brand logo" href="/">Hostal Santa
+					Mónica</a>
+				<button class="navbar-toggler" data-toggle="collapse"
+					data-target="#navcol-1">
+					<span class="sr-only">Toggle navigation</span><span
+						class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navcol-1">
+					<ul class="nav navbar-nav ml-auto">
+						<li class="nav-item" role="presentation"><a
+							class="nav-link active" href="/">Inicio</a></li>
+						<li class="nav-item" role="presentation"><a class="nav-link"
+							href="/">Habitaciones</a></li>
+						<li class="nav-item" role="presentation"><a class="nav-link"
+							href="/reserva">Reservas</a></li>
+						<li class="nav-item" role="presentation"><a class="nav-link"
+							href="/acercade">Acerca de <span class="iconify"
+								data-icon="simple-line-icons:magnifier" data-inline="false"></span>
+						</a></li>
+						<li class="nav-item" role="presentation"><a class="nav-link"
+							href="#">Iniciar Sesión</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+</body>
+</html>

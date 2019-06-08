@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Reservas</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<header th:replace="layout/header :: header"></header>
+	<br>
+	<br>
+	<div class="container">
+		<br>
+		<div>
+			<a href="/reserva" class="btn btn-primary">Reservar</a> <a
+				href="/listreserva" class="btn btn-primary">Listar Reservas</a>
+		</div>
+		<h2 th:if="${list.isEmpty()}">No hay Habitacion</h2>
+		<div th:if="${!list.isEmpty()}">
+			<h2>Habitacion</h2>
+			<table class="table">
+				<thead>
+					<tr>
+
+						<th>Fecha Entrada</th>
+						<th>Fecha Salida</th>
+
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="reserva : ${list}">
+
+						<td th:text="${reserva.fechaEntrada}">
+						<td th:text="${reserva.fechaSalida}">
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer th:replace="layout/footer :: footer"></footer>
+</body>
+</html>
