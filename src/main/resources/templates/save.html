@@ -8,35 +8,50 @@
 	th:href="@{/css/bootstrap.css}">
 </head>
 <body>
+	<header th:replace="layout/header :: header"></header>
+	<br>
+	<br>
 	<div class="container">
 		<br>
 		<h2>Agregar Habitacion</h2>
 		<form action="#" th:action="@{/save}" th:object="${habitacion}"
 			method="post">
 			<div class="form-group">
-<select th:name="temporadaId">
-    <option th:each="temporada : ${temporadas}" th:value="${temporada.idTemporada}" th:text="${temporada.tipo}">     </option>
-</select>
-		
-				<input type="hidden" th:field="*{idHabitacion}" name="id" id="id">
-		
+			<label for="tipo">Temporada:</label> <br>
+				<select class="form-control" th:name="temporadaId">
+					<option th:each="temporada : ${temporadas}"
+						th:value="${temporada.idTemporada}" th:text="${temporada.tipo}">
+					</option>
+				</select>
+			</div>
+			<input type="hidden" th:field="*{idHabitacion}" name="id" id="id">
+
 			<div class="form-group">
-				<label for="nombre">numero</label> <input type="text"
+				<label for="nombre">Número:</label> <input type="text"
 					class="form-control" id="tipo" th:field="*{numero}" name="tipo">
 			</div>
 			<div class="form-group">
-				<label for="nombre">precio</label> <input type="text"
+				<label for="nombre">Precio:</label> <input type="text"
 					class="form-control" id="tipo" th:field="*{precio}" name="tipo">
 			</div>
 			<div class="form-group">
 				<label for="nombre">capacidad</label> <input type="text"
 					class="form-control" id="tipo" th:field="*{tipo}" name="tipo">
 			</div>
-			
-		
+
 
 			<button type="submit" class="btn btn-success">Guardar</button>
+			<a href="/index" class="btn btn-primary">Cancelar</a>
 		</form>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer th:replace="layout/footer :: footer"></footer>
 </body>
 </html>
