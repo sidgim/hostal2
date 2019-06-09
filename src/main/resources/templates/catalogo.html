@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>habitacion</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+<link href="../static/css/catalogo.css" rel="stylesheet"
+	th:href="@{/css/catalogo.css}">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+
+
+</head>
+<body>
+	<header th:replace="layout/header :: header"></header>
+	<br>
+	<br>
+
+	<div class="article-list">
+		<div class="container">
+			<!-- Start: Intro -->
+			<div class="intro">
+				<h2 class="text-info text-center">Tipo de Habitaciones</h2>
+				<p class="text-center">Nunc luctus in metus eget fringilla.
+					Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut
+					laoreet vitae.</p>
+			</div>
+			<!-- End: Intro -->
+			<!-- Start: Articles -->
+			<div class="row articles">
+				<div class="col-sm-6 col-md-4 item">
+					<a href=""><img class="img-fluid" th:src="@{/img/simple.jpg}"
+						src=".../static/img/simple.jpg"></a>
+					<h3 class="name">Habitación Simple</h3>
+					<p class="description">Aenean tortor est, vulputate quis leo
+						in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.
+						Aliquam varius finibus est, interdum justo suscipit id.</p>
+					<a href="" class="action"><i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+				<div class="col-sm-6 col-md-4 item">
+					<a href=""><img class="img-fluid" th:src="@{/img/doble.jpg}"
+						src=".../static/img/doble.jpg"></a>
+					<h3 class="name">Habitación Doble</h3>
+					<p class="description">Aenean tortor est, vulputate quis leo
+						in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.
+						Aliquam varius finibus est, interdum justo suscipit id.</p>
+					<a href="" class="action"><i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+				<div class="col-sm-6 col-md-4 item">
+					<a href=""><img class="img-fluid"
+						th:src="@{/img/matrimonial.jpg}"
+						src=".../static/img/matrimonial.jpg"></a>
+					<h3 class="name">Habitación Matrimonial</h3>
+					<p class="description">Aenean tortor est, vulputate quis leo
+						in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.
+						Aliquam varius finibus est, interdum justo suscipit id.</p>
+					<a href="" class="action"><i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+			<!-- End: Articles -->
+		</div>
+
+		<section class="clean-block features">
+			<div class="container">
+				<div class="block-heading">
+					<h2 class="text-info text-center">Servicios</h2>
+					<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-5 feature-box">
+					<h4>Desayuno <i class="iconify" data-icon="whh:foodtray" data-inline="false"></i></h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+					</div>
+					<div class="col-md-5 feature-box">
+					<h4>Baño privado <i id="icon" class="iconify" data-icon="whh:bathtub" data-inline="false"></i></h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+					</div>
+					<div class="col-md-5 feature-box">
+					<h4>Internet WIFI <i id="icon" class="iconify" data-icon="ant-design:wifi-outline" data-inline="false"></i></h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+					</div>
+					<div class="col-md-5 feature-box">
+					<h4>TV Cable <i class="iconify" data-icon="fa-solid:tv" data-inline="false"></i></h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+					</div>
+					<div class="col-md-5 feature-box">
+					<h4>Estacionamiento Noche <i id="icon" class="iconify" data-icon="ic:outline-directions-car" data-inline="false"></i></h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+					</div>
+					<div class="col-md-5 feature-box">
+					<h4>Lavanderia <i id="icon" class="iconify" data-icon="zmdi:washing-machine" data-inline="false"></i></h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer th:replace="layout/footer :: footer"></footer>
+</body>
+</html>

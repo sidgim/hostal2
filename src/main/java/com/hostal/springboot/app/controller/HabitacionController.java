@@ -69,4 +69,8 @@ public class HabitacionController {
 	public String admin(Model model) {
 		return "login";
 	}
+	@RequestMapping("/catalogo")
+	public String habitaciones(Model model) {
+		return "catalogo";
+	}
 }
