@@ -20,22 +20,16 @@
 			<table class="table">
 				<thead>
 					<tr>
-
 						<th>Fecha Entrada</th>
 						<th>Fecha Salida</th>
 						<th>Tipo Pago</th>
 						<th>Run</th>
-
-
-
 						<th></th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="reserva : ${listR}">
-
-
 						<td th:text="${reserva.fechaEntrada}">
 						<td th:text="${reserva.fechaSalida}">
 						<td th:text="${reserva.tipoPago.tipo}">

@@ -2,6 +2,9 @@ package com.hostal.springboot.app.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 
@@ -19,12 +22,13 @@ public class Reserva implements Serializable {
 	private int idReserva;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd-MM-yyyy")
 	private Date fechaEntrada;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd-MM-yyyy")
 	private Date fechaSalida;
 
-	//bi-directional many-to-one association to Habitacion
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Habitacion_idHabitacion")
 	private Habitacion habitacion;
