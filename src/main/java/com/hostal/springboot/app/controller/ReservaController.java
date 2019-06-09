@@ -77,8 +77,11 @@ public class ReservaController {
 	}
 	
 	@PostMapping(value = "/reserva")
-	public String save (Reserva reserva, Model model, @RequestParam(value = "HabitacionId", required = true) int re,
+	public String save (@Valid Reserva reserva,BindingResult result, Model model, @RequestParam(value = "HabitacionId", required = true) int re,
 			@RequestParam(value = "huespedId", required = true) int cli,@RequestParam(value = "tipoPagoId", required = true) int tip) {
+		if(result.hasErrors()) {
+			return "redirect:/reserva/0";
+		}
 		Habitacion h = habitacionService.get(re);
 		Huesped hu = huespedService.get(cli);
 		TipoPago t = tipoPagoService.get(tip);

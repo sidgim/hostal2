@@ -2,6 +2,7 @@ package com.hostal.springboot.app.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,11 +23,13 @@ public class Reserva implements Serializable {
 	private int idReserva;
 
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="dd-MM-yyyy")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@NotNull
 	private Date fechaEntrada;
 
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="dd-MM-yyyy")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@NotNull
 	private Date fechaSalida;
 
 	@ManyToOne(fetch=FetchType.LAZY)

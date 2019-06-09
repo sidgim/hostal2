@@ -2,6 +2,10 @@ package com.hostal.springboot.app.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 import java.util.List;
 
 
@@ -17,15 +21,15 @@ public class Huesped implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idHuesped;
-
+	@NotEmpty
 	private String apellido;
-
+	@NotEmpty @Email
 	private String correo;
-
+	@NotEmpty
 	private String nombre;
-
+	@NotEmpty
 	private String run;
-
+	@NotEmpty
 	private String telefono;
 
 	//bi-directional many-to-one association to Reserva

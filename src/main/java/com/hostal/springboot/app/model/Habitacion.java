@@ -2,6 +2,7 @@ package com.hostal.springboot.app.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.List;
 
 
@@ -17,11 +18,14 @@ public class Habitacion implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idHabitacion;
-
+	
+	@NotNull
 	private int numero;
-
+	
+	@NotNull
 	private double precio;
-
+	
+	@NotEmpty
 	private String tipo;
 
 	//bi-directional many-to-one association to Temporada

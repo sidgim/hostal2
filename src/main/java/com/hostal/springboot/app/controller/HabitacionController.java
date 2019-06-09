@@ -1,9 +1,13 @@
 package com.hostal.springboot.app.controller;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.boot.model.relational.Database;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +28,8 @@ public class HabitacionController {
 	private HabitacionService habitacionService;
 	@Autowired
 	private TemporadaService temporadaService;
-
+	
+	
 	
 	@RequestMapping("/index")
 	public String habitacion(Model model) {
@@ -45,9 +50,12 @@ public class HabitacionController {
 		}
 		return "save";
 	}
-	
+    
 	@PostMapping(value = "/save")
-	public String save (Habitacion habitacion, Model model , @RequestParam(value = "temporadaId", required = true) Integer temp) {
+	public String save (@Valid Habitacion habitacion,BindingResult result, Model model , @RequestParam(value = "temporadaId", required = true) Integer temp) {
+		if(result.hasErrors()) {
+			return "redirect:/save";
+		}
 		Temporada t = temporadaService.get(temp);
 		habitacion.setTemporada(t);
 		habitacionService.save(habitacion);	
@@ -69,7 +77,7 @@ public class HabitacionController {
 	public String admin(Model model) {
 		return "login";
 	}
-	@RequestMapping("/catalogo")
+	@RequestMapping({"/catalogo","/"})
 	public String habitaciones(Model model) {
 		return "catalogo";
 	}

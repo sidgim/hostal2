@@ -24,19 +24,19 @@
 					</option>
 				</select>
 			</div>
-			<input type="hidden" th:field="*{idHabitacion}" name="id" id="id">
+			<input type="hidden" th:field="*{idHabitacion}" name="id" id="id" required>
 
 			<div class="form-group">
 				<label for="nombre">Número:</label> <input type="text"
-					class="form-control" id="tipo" th:field="*{numero}" name="tipo">
+					class="form-control" id="tipo" th:field="*{numero}" name="tipo" required>
 			</div>
 			<div class="form-group">
 				<label for="nombre">Precio:</label> <input type="text"
-					class="form-control" id="tipo" th:field="*{precio}" name="tipo">
+					class="form-control" id="tipo" th:field="*{precio}" name="tipo" required>
 			</div>
 			<div class="form-group">
 				<label for="nombre">capacidad</label> <input type="text"
-					class="form-control" id="tipo" th:field="*{tipo}" name="tipo">
+					class="form-control" id="tipo" th:field="*{tipo}" name="tipo" required>
 			</div>
 
 

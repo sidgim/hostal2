@@ -23,7 +23,11 @@
 						<th>Fecha Entrada</th>
 						<th>Fecha Salida</th>
 						<th>Tipo Pago</th>
+						<th>Precio</th>
+						<th>Tipo habitacion</th>
 						<th>Run</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -33,7 +37,11 @@
 						<td th:text="${reserva.fechaEntrada}">
 						<td th:text="${reserva.fechaSalida}">
 						<td th:text="${reserva.tipoPago.tipo}">
+						<td th:text="${reserva.habitacion.precio}">
+						<td th:text="${reserva.habitacion.tipo}">
 						<td th:text="${reserva.huesped.run}">
+						<td th:text="${reserva.huesped.nombre}">
+						<td th:text="${reserva.huesped.apellido}">
 						<td><a class="btn btn-info"
 							th:href="@{/reserva/{id}(id=${reserva.idReserva})}">Editar</a></td>
 						<td><a class="btn btn-danger"
