@@ -91,19 +91,19 @@
 					class="form-control" th:name="huespedId">
 					<option th:each="huesp : ${huespedes}"
 						th:value="${huesp.idHuesped}" th:text="${huesp.run}"></option>
-				</select> <label for="tipo">Tipo de Pago:</label> <br> <select
+				</select> <label for="tipo">Tipo de Pago:</label> <br> <select	
 					class="form-control" th:name="tipoPagoId">
 					<option th:each="pago : ${tipoP}" th:value="${pago.idTipoPago}"
 						th:text="${pago.tipo}"></option>
 				</select> <input type="hidden" th:field="*{idReserva}" name="id" id="id">
 
 				<div class="form-group">
-					<label for="nombre">Fecha Entrada</label> <input type="text"
+					<label for="nombre">Fecha Entrada</label> <input type="text" autocomplete="off"
 						class="form-control" id="fechaEntrada" th:field="*{fechaEntrada}"
 						name="tipo" required>
 				</div>
 				<div class="form-group">
-					<label for="nombre">Fecha Salida</label> <input type="text"
+					<label for="nombre">Fecha Salida</label> <input type="text" autocomplete="off"
 						class="form-control" id="fechaSalida" th:field="*{fechaSalida}"
 						name="tipo" required>
 				</div>
