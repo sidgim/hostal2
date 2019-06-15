@@ -187,3 +187,18 @@ html {
 .titulo {
     font-size: 24px;
 }
+.delete{
+	 width: 32px; 
+	 height: 32px; 
+	 color: red;
+}
+.edit{
+	 width: 32px; 
+	 height: 32px; 
+	 color: #D2BE31;
+}
+.add{
+	 width: 24px; 
+	 height: 24px; 
+	 color: white;
+}

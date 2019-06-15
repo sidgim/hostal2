@@ -3,10 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+<link href="../static/css/style.css" rel="stylesheet"
+	th:href="@{/css/style.css}">
+<script src="https://code.iconify.design/1/1.0.2/iconify.min.js"></script>
 </head>
 <body>
 	<header th:replace="layout/header :: header"></header>
-
+	<br>
+	<br>
+	<br>
 	<br>
 	<br>
 	<div class="container">
@@ -14,13 +21,16 @@
 
 
 		<div>
-			<h2>Reservas</h2>
 			<div>
-				<a href="/reserva/0" class="btn btn-primary">Agregar</a>
+				<h2>
+					Reservas <a href="/reserva/0" class="btn btn-primary">Agregar <span
+						class="iconify add" data-icon="ic:baseline-add-circle-outline"
+						data-inline="false"></span></a>
+				</h2>
 			</div>
 			<br>
-			<table class="table">
-				<thead>
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
 					<tr>
 						<th>Fecha Entrada</th>
 						<th>Fecha Salida</th>
@@ -30,8 +40,8 @@
 						<th>Run</th>
 						<th>Nombre</th>
 						<th>Apellido</th>
-						<th></th>
-						<th></th>
+						<th>Editar</th>
+						<th>Eliminar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -44,10 +54,12 @@
 						<td th:text="${reserva.huesped.run}">
 						<td th:text="${reserva.huesped.nombre}">
 						<td th:text="${reserva.huesped.apellido}">
-						<td><a class="btn btn-info"
-							th:href="@{/reserva/{id}(id=${reserva.idReserva})}">Editar</a></td>
-						<td><a class="btn btn-danger"
-							th:href="@{/deletes/{id}(id=${reserva.idReserva})}">Eliminar</a></td>
+						<td><a th:href="@{/reserva/{id}(id=${reserva.idReserva})}"><span
+								class="iconify edit" data-icon="fa-regular:edit"
+								data-inline="false"></span></a></td>
+						<td><a th:href="@{/deletes/{id}(id=${reserva.idReserva})}"><span
+								class="iconify delete" data-icon="ic:baseline-delete-forever"
+								data-inline="false"></span></a></td>
 					</tr>
 				</tbody>
 			</table>

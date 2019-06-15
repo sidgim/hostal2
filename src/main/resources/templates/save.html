@@ -6,11 +6,13 @@
 
 <link href="../static/css/bootstrap.css" rel="stylesheet"
 	th:href="@{/css/bootstrap.css}">
+	<link href="../static/css/style.css" rel="stylesheet"
+	th:href="@{/css/style.css}">
+	<script src="https://code.iconify.design/1/1.0.2/iconify.min.js"></script>
 </head>
 <body>
 	<header th:replace="layout/header :: header"></header>
-	<br>
-	<br>
+	<br><br><br><br><br>
 	<div class="container">
 		<br>
 		<h2>Agregar Habitacion</h2>
@@ -40,8 +42,8 @@
 			</div>
 
 
-			<button type="submit" class="btn btn-success">Guardar</button>
-			<a href="/index" class="btn btn-primary">Cancelar</a>
+			<button type="submit" class="btn btn-success">Guardar <span class="iconify add" data-icon="ic:round-save-alt" data-inline="false"></span></button>
+			<a href="/index" class="btn btn-primary">Cancelar <span class="iconify" data-icon="topcoat:cancel" data-inline="false"></span></a>
 		</form>
 	</div>
 	<br>

@@ -10035,4 +10035,31 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+
+
+
+/*Sombra para el navbar*/
+.clean-navbar .navbar-nav .nav-link {
+    font-weight: 600;
+    font-size: .9rem;
+    text-transform: uppercase
+}
+
+.clean-navbar.fixed-bottom,
+.clean-navbar.fixed-top {
+    box-shadow: 0 0 15px rgba(0, 0, 0, .5)
+}
+
+.clean-navbar .navbar-nav .nav-item {
+    padding-right: 1rem
+}
+
+.clean-navbar .navbar-nav:last-child .item:last-child,
+.clean-navbar .navbar-nav:last-child .item:last-child a {
+    padding-right: 0
+}
+
+.clean-navbar.fixed-top+.page {
+    padding-top: 62px
+}
 /*# sourceMappingURL=bootstrap.css.map */

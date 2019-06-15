@@ -5,39 +5,53 @@
 <title>habitacion</title>
 <link href="../static/css/bootstrap.css" rel="stylesheet"
 	th:href="@{/css/bootstrap.css}">
+<link href="../static/css/style.css" rel="stylesheet"
+	th:href="@{/css/style.css}">
+<script src="https://code.iconify.design/1/1.0.2/iconify.min.js"></script>
 </head>
 <body>
 	<header th:replace="layout/header :: header"></header>
-	<br><br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<div class="container">
 		<br>
 
 		<h2 th:if="${list.isEmpty()}">No hay Habitacion</h2>
 		<div th:if="${!list.isEmpty()}">
-			<h2>Habitación <a href="/save/0" class="btn btn-primary">Agregar</a></h2>
-			<table class="table">
-				<thead>
+			<h2>
+				Habitación <a href="/save/0" class="btn btn-primary">Agregar <span
+					class="iconify add" data-icon="ic:baseline-add-circle-outline"
+					data-inline="false"></span></a>
+			</h2>
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
 					<tr>
-						<th>numero</th>
-						<th>precio</th>
-						<th>tipo</th>
-						<th>temporada</th>
-						<th></th>
-						<th></th>
+						<th scope="col">#</th>
+						<th scope="col">Precio</th>
+						<th scope="col">Tipo</th>
+						<th scope="col">Temporada</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Eliminar</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="habitacion : ${list}">
 
-						
+
 						<td th:text="${habitacion.numero}">
 						<td th:text="${habitacion.precio}">
 						<td th:text="${habitacion.tipo}">
 						<td th:text="${habitacion.temporada.tipo}">
-						<td><a class="btn btn-info"
-							th:href="@{/save/{id}(id=${habitacion.idHabitacion})}">Editar</a></td>
-						<td><a class="btn btn-danger"
-							th:href="@{/delete/{id}(id=${habitacion.idHabitacion})}">Eliminar</a></td>
+						<td><a th:href="@{/save/{id}(id=${habitacion.idHabitacion})}"><span
+								class="iconify edit" data-icon="fa-regular:edit"
+								data-inline="false"></span></a></td>
+						<td><a
+							th:href="@{/delete/{id}(id=${habitacion.idHabitacion})}"><span
+								class="iconify delete" data-icon="ic:baseline-delete-forever"
+								data-inline="false"></span></a></td>
 					</tr>
 				</tbody>
 			</table>

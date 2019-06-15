@@ -5,11 +5,12 @@
 <title>Insert title here</title>
 <link href="../static/css/bootstrap.css" rel="stylesheet"
 	th:href="@{/css/bootstrap.css}">
+	<link href="../static/css/style.css" rel="stylesheet"
+	th:href="@{/css/style.css}">
 </head>
 <body>
 	<header th:replace="layout/header :: header"></header>
-	<br>
-	<br>
+	<br><br><br><br><br>
 	<div class="container">
 	<br>
 		<h2>Agregar Huésped</h2>
@@ -44,8 +45,8 @@
 					class="form-control" id="tipo" th:field="*{telefono}" name="tipo" required>
 			</div>
 			<br>
-			<button type="submit" class="btn btn-success">Guardar</button>
-			<a href="/verReservas" class="btn btn-primary">Cancelar</a>
+			<button type="submit" class="btn btn-success">Guardar <span class="iconify add" data-icon="ic:round-save-alt" data-inline="false"></span></button>
+			<a href="/verReservas" class="btn btn-primary">Cancelar <span class="iconify" data-icon="topcoat:cancel" data-inline="false"></span></a>
 		</form>
 	</div>
 	<br>

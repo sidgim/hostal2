@@ -5,6 +5,8 @@
 <title>Reservas - Hostal Santa Mónica</title>
 <link href="../static/css/bootstrap.css" rel="stylesheet"
 	th:href="@{/css/bootstrap.css}">
+	<link href="../static/css/style.css" rel="stylesheet"
+	th:href="@{/css/style.css}">
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -13,8 +15,7 @@
 </head>
 <body>
 	<header th:replace="layout/header :: header"></header>
-	<br>
-	<br>
+	<br><br><br><br><br>
 	<!-- <br>
 	<br>
 	<div>
@@ -76,7 +77,7 @@
 		<div>
 			<a href="/verReservas" class="btn btn-primary">Listar Reservas</a> <a
 				href="/formulario-huesped/0" class="btn btn-primary">Agregar
-				Huesped</a>
+				Huesped <span class="iconify add" data-icon="ant-design:user-add-outline" data-inline="false"></span></a>
 		</div>
 		<br>
 		<form action="#" th:action="@{/reserva}" th:object="${reservas}"
@@ -109,8 +110,8 @@
 				</div>
 
 				<br>
-				<button type="submit" class="btn btn-success">Guardar</button>
-				<a href="/verReservas" class="btn btn-primary">Cancelar</a>
+				<button type="submit" class="btn btn-success">Guardar <span class="iconify add" data-icon="ic:round-save-alt" data-inline="false"></span></button>
+				<a href="/verReservas" class="btn btn-primary">Cancelar <span class="iconify" data-icon="topcoat:cancel" data-inline="false"></span></a>
 			</div>
 		</form>
 
