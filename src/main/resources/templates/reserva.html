@@ -97,19 +97,19 @@
 				</select> <input type="hidden" th:field="*{idReserva}" name="id" id="id">
 
 				<div class="form-group">
-					<label for="nombre">Fecha Entrada</label> <input type="text" autocomplete="off"
+					<label for="nombre">Fecha Entrada</label> <input type="date" autocomplete="off"
 						class="form-control" id="fechaEntrada" th:field="*{fechaEntrada}"
 						name="tipo" required>
 				</div>
 				<div class="form-group">
-					<label for="nombre">Fecha Salida</label> <input type="text" autocomplete="off"
+					<label for="nombre">Fecha Salida</label> <input type="date" autocomplete="off"
 						class="form-control" id="fechaSalida" th:field="*{fechaSalida}"
 						name="tipo" required>
 				</div>
 
 				<br>
 				<button type="submit" class="btn btn-success">Guardar <span class="iconify add" data-icon="ic:round-save-alt" data-inline="false"></span></button>
-				<a href="/verReservas" class="btn btn-primary">Cancelar <span class="iconify" data-icon="topcoat:cancel" data-inline="false"></span></a>
+				<a href="/verReservas" class="btn btn-danger">Cancelar <span class="iconify" data-icon="topcoat:cancel" data-inline="false"></span></a>
 			</div>
 		</form>
 
