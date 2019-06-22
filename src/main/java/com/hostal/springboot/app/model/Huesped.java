@@ -5,6 +5,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class Huesped implements Serializable {
 	private String nombre;
 	@NotEmpty
 	private String run;
-	@NotEmpty
+	@NotEmpty 
 	private String telefono;
 
 	//bi-directional many-to-one association to Reserva

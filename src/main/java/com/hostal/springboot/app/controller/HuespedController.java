@@ -29,10 +29,10 @@ public class HuespedController {
 	private HuespedService huespedService;
 	
 	
-	@RequestMapping("/formulario-huesped")
+	@RequestMapping("/huesped")
 	public String huesped(Model model) {
-		model.addAttribute("list", huespedService.getAll());
-		return "formulario-huesped";
+		model.addAttribute("listHuesped", huespedService.getAll());
+		return "huesped";
 	}
 	
 	
@@ -52,13 +52,13 @@ public class HuespedController {
 			return "redirect:/formulario-huesped/0";
 		}
 		huespedService.save(huesped);	
-		return "redirect:/verReservas";
+		return "redirect:/huesped";
 	}
 	
 	@RequestMapping("/delete1/{id}")
 	public String delete (@PathVariable Integer id , Model model) {
 		huespedService.delete(id);
-			return "redirect:/verReservas";
+			return "redirect:/huesped";
 	}
 
 }

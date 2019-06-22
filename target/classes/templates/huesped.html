@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>habitacion</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+<link href="../static/css/style.css" rel="stylesheet"
+	th:href="@{/css/style.css}">
+<script src="https://code.iconify.design/1/1.0.2/iconify.min.js"></script>
+</head>
+<body>
+	<header th:replace="layout/header :: header"></header>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<br>
+
+
+			<h2>
+				Huesped <a
+				href="/formulario-huesped/0" class="btn btn-primary">Agregar
+				Huesped <span class="iconify add" data-icon="ant-design:user-add-outline" data-inline="false"></span></a>
+			</h2>
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						
+						<th scope="col">Rut</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellido</th>
+						<th scope="col">Correo Eléctronico</th>
+						<th scope="col">Telefono</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Eliminar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="huesped : ${listHuesped}">
+
+
+						<td th:text="${huesped.run}">
+						<td th:text="${huesped.nombre}">
+						<td th:text="${huesped.apellido}">
+						<td th:text="${huesped.correo}">
+						<td th:text="${huesped.telefono}">
+						<td><a th:href="@{/formulario-huesped/{id}(id=${huesped.idHuesped})}"><span
+								class="iconify edit" data-icon="fa-regular:edit"
+								data-inline="false"></span></a></td>
+						<td><a
+							th:href="@{/delete1/{id}(id=${huesped.idHuesped})}"><span
+								class="iconify delete" data-icon="ic:baseline-delete-forever"
+								data-inline="false"></span></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer th:replace="layout/footer :: footer"></footer>
+</body>
+</html>
