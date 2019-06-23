@@ -1,14 +1,5 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>habitacion</title>
-<link href="../static/css/bootstrap.css" rel="stylesheet"
-	th:href="@{/css/bootstrap.css}">
-<link href="../static/css/style.css" rel="stylesheet"
-	th:href="@{/css/style.css}">
-<script src="https://code.iconify.design/1/1.0.2/iconify.min.js"></script>
-</head>
+<head th:replace="layout/header :: head"></head>
 <body>
 	<header th:replace="layout/header :: header"></header>
 	<br>
@@ -25,7 +16,7 @@
 					class="iconify add" data-icon="ic:baseline-add-circle-outline"
 					data-inline="false"></span></a>
 			</h2>
-			<table class="table table-bordered table-striped">
+			<table id="tabla" class="table  table-bordered table-striped">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">#</th>
@@ -70,4 +61,8 @@
 	<br>
 	<footer th:replace="layout/footer :: footer"></footer>
 </body>
+<script >
+	$(document).ready(function(){
+		$('#tabla').DataTable();
+	});</script>
 </html>

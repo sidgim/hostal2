@@ -1,16 +1,7 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="../static/css/bootstrap.css" rel="stylesheet"
-	th:href="@{/css/bootstrap.css}">
-	<link href="../static/css/style.css" rel="stylesheet"
-	th:href="@{/css/style.css}">
-</head>
+<head th:replace="layout/header :: head"></head>
 <body>
 	<header th:replace="layout/header :: header"></header>
-	<br><br><br><br><br>
 	<div class="container">
 	<br>
 		<h2>Agregar Huésped</h2>

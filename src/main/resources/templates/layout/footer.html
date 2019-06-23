@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="footer">
 <meta charset="UTF-8">
 <title>habitacion</title>
@@ -13,7 +13,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
-                    <h5>Ir a Inicio</h5>
+                <p sec:authorize="isAuthenticated()">
+			Usuario logeado: <span sec:authentication="name"></span> | Roles: <span
+				sec:authentication="principal.authorities"></span>
+		</p>
+                  <h5>Ir a Inicio</h5>
                     <ul>
                         <li><a href="/catalogo">Inicio</a></li>
                     </ul>
@@ -31,14 +35,18 @@
                         <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
+                
                 <div class="col-sm-3">
                     <h5>Legal</h5>
                     <ul>
-                        <a>© 2019 Copyright Text</a>
                     </ul>
                 </div>
             </div>
         </div>
+        <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+		<script th:src="@{/js/popper.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/jquery-ui.min.js}"></script>
     </footer>
 </body>
 </html>

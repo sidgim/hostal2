@@ -73,10 +73,7 @@ public class HabitacionController {
 	public String servicio(Model model) {
 		return "acercade";
 	}
-	@RequestMapping("/login")
-	public String admin(Model model) {
-		return "login";
-	}
+	
 	@RequestMapping({"/catalogo","/"})
 	public String habitaciones(Model model) {
 		return "catalogo";
