@@ -12,20 +12,23 @@
 
 	<header th:fragment="header">
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-			<a class="navbar-brand" href="#">Hostal Santa Monica</a>
+			<a class="navbar-brand" th:href="@{/catalogo}">Hostal Santa Monica</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="#about"
+				<li  class="nav-item"><a class="nav-link" href="#about"
+						th:href="@{/catalogo}">Catalogo</a></li>
+				
+					<li  class="nav-item"><a class="nav-link" href="#about"
 						th:href="@{/index}">Habitacion</a></li>
 
-					<li class="nav-item"><a class="nav-link" href="#about"
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="#about"
 						th:href="@{/huesped}">Huesped</a></li>
 						
-					<li class="nav-item"><a class="nav-link" href="#about"
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="#about"
 						th:href="@{/verReservas}">Reserva</a></li>
 				</ul>
 				<ul class="navbar-nav navbar-right">

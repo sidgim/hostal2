@@ -7,6 +7,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -40,7 +41,7 @@ public class ReservaController {
 	@Autowired
 	private HuespedService huespedService;
 
-
+	@Secured("ROLE_ADMIN")
 	@GetMapping(value = "/list")
 	public String list(Model model) {
 		List<Reserva> lista = reservaService.getAll();
@@ -50,7 +51,7 @@ public class ReservaController {
 		return "reservalist";
 	}
 	
-
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/verReservas")
 	public String reserva(Model model) {
 		model.addAttribute("habitaciones", habitacionService.getAll());
@@ -58,6 +59,7 @@ public class ReservaController {
 		return "verReservas";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@GetMapping(value = "/reserva/{id}")
 	public String Showsave(@PathVariable("id") Integer id, Model model) {
 		if (id != null && id != 0) {
@@ -76,6 +78,7 @@ public class ReservaController {
 		return "reserva";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@PostMapping(value = "/reserva")
 	public String save (@Valid Reserva reserva,BindingResult result, Model model, @RequestParam(value = "HabitacionId", required = true) int re,
 			@RequestParam(value = "huespedId", required = true) int cli,@RequestParam(value = "tipoPagoId", required = true) int tip) {
@@ -93,6 +96,7 @@ public class ReservaController {
 		return "redirect:/verReservas";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@GetMapping("/deletes/{id}")
 	public String delete (@PathVariable Integer id , Model model) {
 			reservaService.delete(id);blob:https://web.whatsapp.com/5adaa5ee-88ea-4e1c-af3b-2cd042cb4e87

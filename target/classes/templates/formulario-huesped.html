@@ -1,11 +1,11 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/header :: head"></head>
 <body>
 	<header th:replace="layout/header :: header"></header>
 	<div class="container">
 	<br>
 		<h2>Agregar Huésped</h2>
-		<form action="#" th:action="@{/formulario-huesped}"
+		<form action="#" sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/formulario-huesped}"
 			th:object="${huesped}" method="post">
 			<input type="hidden" th:field="*{idHuesped}" name="id" id="id">
 

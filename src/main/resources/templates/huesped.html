@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/header :: head"></head>
 <body>
 	<header th:replace="layout/header :: header"></header>
@@ -7,7 +7,7 @@
 	<br>
 	<br>
 	<br>
-	<div class="container">
+	<div sec:authorize="hasRole('ROLE_ADMIN')" class="container">
 		<br>
 
 

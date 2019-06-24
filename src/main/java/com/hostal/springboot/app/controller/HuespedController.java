@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,14 +29,14 @@ public class HuespedController {
 	@Autowired
 	private HuespedService huespedService;
 	
-	
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/huesped")
 	public String huesped(Model model) {
 		model.addAttribute("listHuesped", huespedService.getAll());
 		return "huesped";
 	}
 	
-	
+	@Secured("ROLE_ADMIN")
 	@GetMapping("/formulario-huesped/{id}")
 	public String Showsave(@PathVariable ("id") Integer id, Model model) {
 
@@ -46,6 +47,8 @@ public class HuespedController {
 		}
 		return "formulario-huesped";
 	}
+	
+	@Secured("ROLE_ADMIN")
 	@PostMapping("/formulario-huesped")
 	public String save (@Valid Huesped huesped,BindingResult result, Model model ) {
 		if(result.hasErrors()) {
@@ -54,7 +57,7 @@ public class HuespedController {
 		huespedService.save(huesped);	
 		return "redirect:/huesped";
 	}
-	
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/delete1/{id}")
 	public String delete (@PathVariable Integer id , Model model) {
 		huespedService.delete(id);
