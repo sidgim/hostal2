@@ -1,0 +1,83 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/header :: head"></head>
+
+<body>
+	<header th:replace="layout/header :: header"></header>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="page landing-page">
+		<section class="masthead text-white text-center">
+			<!-- <div class=card>
+				<div class="card-body"> -->
+			<div class="container">
+				<div class="block-heading">
+					<h2 class="text-info text-center">Reserva ahora...</h2>
+				</div>
+				<section class="search-sec">
+					<div class="container">
+						<form action="#" method="post" novalidate="novalidate">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="row">
+										<!-- <div class="form-group">
+											<label for="nombre">Fecha Salida</label> <input type="date"
+												autocomplete="off" class="form-control" id="fechaSalida"
+												th:field="*{fechaSalida}}" name="tipo" required>
+										</div> -->
+										<!-- <div class="form-group">
+											<input type="date" autocomplete="off" class="form-control"
+												id="fechaSalida" placeholder="Fecha Salida"
+												th:field="*{fechaSalida}" name="tipo" required>
+										</div> -->
+										<div class="col-lg-4 col-md-3 col-sm-12 p-0">
+											<select class="form-control search-slt"
+												id="exampleFormControlSelect1">
+												<option>¿Qué materia necesitas?</option>
+												<option>Matemáticas</option>
+												<option>Lenguaje</option>
+												<option>Ciencias</option>
+												<option>Biología</option>
+												<option>Física</option>
+												<option>Programación</option>
+											</select>
+										</div>
+										<div class="col-lg-4 col-md-3 col-sm-12 p-0">
+											<button type="button"
+												class="btn btn-danger wrn-btn btn-block">Buscar</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+			</div>
+			<!-- </div>
+			</div> -->
+
+		</section>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<footer th:replace="layout/footer :: footer"></footer>
+
+</body>
+</html>

@@ -23,16 +23,16 @@
 			<table class="table table-bordered table-striped">
 				<thead class="thead-dark">
 					<tr>
-						<th>Fecha Entrada</th>
-						<th>Fecha Salida</th>
-						<th>Tipo Pago</th>
-						<th>Precio</th>
-						<th>Tipo habitacion</th>
-						<th>Run</th>
-						<th>Nombre</th>
-						<th>Apellido</th>
-						<th>Editar</th>
-						<th>Eliminar</th>
+						<th style="text-align: center">Fecha Entrada</th>
+						<th style="text-align: center">Fecha Salida</th>
+						<th style="text-align: center">Tipo Pago</th>
+						<th style="text-align: center">Precio</th>
+						<th style="text-align: center">Tipo habitacion</th>
+						<th style="text-align: center">Run</th>
+						<th style="text-align: center">Nombre</th>
+						<th style="text-align: center">Apellido</th>
+						<th style="text-align: center">Editar</th>
+						<th style="text-align: center">Eliminar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,10 +45,10 @@
 						<td th:text="${reserva.huesped.run}">
 						<td th:text="${reserva.huesped.nombre}">
 						<td th:text="${reserva.huesped.apellido}">
-						<td><a th:href="@{/reserva/{id}(id=${reserva.idReserva})}"><span
+						<td style="text-align: center"><a th:href="@{/reserva/{id}(id=${reserva.idReserva})}"><span
 								class="iconify edit" data-icon="fa-regular:edit"
 								data-inline="false"></span></a></td>
-						<td><a th:href="@{/deletes/{id}(id=${reserva.idReserva})}"><span
+						<td style="text-align: center"><a th:href="@{/deletes/{id}(id=${reserva.idReserva})}"><span
 								class="iconify delete" data-icon="ic:baseline-delete-forever"
 								data-inline="false"></span></a></td>
 					</tr>

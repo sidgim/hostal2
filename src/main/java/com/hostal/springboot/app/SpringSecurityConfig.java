@@ -29,7 +29,7 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
 	//Autorizaciones http
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/", "/css/**", "/js/**", "/img/**","/catalogo").permitAll()
+		http.authorizeRequests().antMatchers("/", "/css/**", "/js/**", "/img/**","/catalogo","/home").permitAll()
 		/*.antMatchers("/reserva/**").hasAnyRole("USER")
 		.antMatchers("/save/**").hasAnyRole("USER")
 		.antMatchers("/formulario-huesped/**").hasAnyRole("ADMIN") */
@@ -37,7 +37,7 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
 		.and()
 		    .formLogin()
 		        .successHandler(successHandler)
-		        //.loginPage("/login")
+//		        .loginPage("/login")
 		    .permitAll()
 		.and()
 		.logout().permitAll()

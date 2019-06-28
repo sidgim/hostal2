@@ -81,7 +81,7 @@ public class ReservaController {
 	@Secured("ROLE_ADMIN")
 	@PostMapping(value = "/reserva")
 	public String save (@Valid Reserva reserva,BindingResult result, Model model, @RequestParam(value = "HabitacionId", required = true) int re,
-			@RequestParam(value = "huespedId", required = true) int cli,@RequestParam(value = "tipoPagoId", required = true) int tip) {
+			@RequestParam(value = "HuespedId", required = true) int cli,@RequestParam(value = "tipoPagoId", required = true) int tip) {
 		if(result.hasErrors()) {
 			return "redirect:/reserva/0";
 		}

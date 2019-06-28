@@ -27,10 +27,9 @@
 					<option  th:each="huesp : ${huespedes}"
 						th:value="${huesp.idHuesped}" th:text="${huesp.run}"></option>
 				</select> 
-				<label for="tipo">Tipo de Pago:</label> <br> <select	
+				<label for="tipo">Tipo de Pago:</label> <br> 
 				
-				
-					class="form-control" th:name="tipoPagoId">
+				<select class="form-control" th:name="tipoPagoId">
 					<option th:each="pago : ${tipoP}" th:value="${pago.idTipoPago}"
 						th:text="${pago.tipo}"></option>
 				</select> <input type="hidden" th:field="*{idReserva}" name="id" id="id">
@@ -64,10 +63,5 @@
 	});
 </script>
 </body>
-		<script >
-	$(document).ready(function(){
-		$('#buscador').select2();
-	});
-</script>
 </html>
 

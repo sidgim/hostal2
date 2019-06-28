@@ -98,6 +98,10 @@ public class HabitacionController {
 	public String servicio(Model model) {
 		return "acercade";
 	}
+	@RequestMapping("/home")
+	public String home(Model model) {
+		return "home";
+	}
 	
 	
 	@RequestMapping({"/catalogo","/"})

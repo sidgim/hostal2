@@ -19,12 +19,12 @@
 			<table id="tabla" class="table  table-bordered table-striped">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Precio</th>
-						<th scope="col">Tipo</th>
-						<th scope="col">Temporada</th>
-						<th sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Editar</th>
-						<th sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Eliminar</th>
+						<th scope="col"  style="text-align: center">#</th>
+						<th scope="col"  style="text-align: center">Precio</th>
+						<th scope="col"  style="text-align: center">Tipo</th>
+						<th scope="col"  style="text-align: center">Temporada</th>
+						<th  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Editar</th>
+						<th  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Eliminar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,11 +34,11 @@
 						<td th:text="${habitacion.numero}">
 						<td th:text="${habitacion.precio}">
 						<td th:text="${habitacion.tipo}">
-						<td th:text="${habitacion.temporada.tipo}">
-						<td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/save/{id}(id=${habitacion.idHabitacion})}"><span
+						<td  style="text-align: center" th:text="${habitacion.temporada.tipo}">
+						<td  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/save/{id}(id=${habitacion.idHabitacion})}"><span
 								class="iconify edit" data-icon="fa-regular:edit"
 								data-inline="false"></span></a></td>
-						<td sec:authorize="hasRole('ROLE_ADMIN')"><a
+						<td  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')"><a
 							th:href="@{/delete/{id}(id=${habitacion.idHabitacion})}"><span
 								class="iconify delete" data-icon="ic:baseline-delete-forever"
 								data-inline="false"></span></a></td>
