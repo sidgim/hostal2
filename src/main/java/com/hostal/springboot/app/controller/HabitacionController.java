@@ -9,6 +9,9 @@ import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
 import org.hibernate.boot.model.relational.Database;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -30,6 +33,7 @@ import com.hostal.springboot.app.model.Temporada;
 import com.hostal.springboot.app.services.HabitacionService;
 import com.hostal.springboot.app.services.ReservaService;
 import com.hostal.springboot.app.services.TemporadaService;
+import com.hostal.springboot.app.util.paginator.PageRender;
 
 @Controller
 public class HabitacionController {
@@ -44,8 +48,12 @@ public class HabitacionController {
 	
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/index")
-	public String habitacion(Model model ) {
-		model.addAttribute("list", habitacionService.getAll());
+	public String habitacion(@RequestParam(name="page", defaultValue = "0") int page, Model model ) {
+		Pageable pageRequest = PageRequest.of(page,3); 
+		Page<Habitacion> pagina = habitacionService.getAll(pageRequest);
+		PageRender<Habitacion> pageRender = new PageRender<>("/index",pagina);
+ 		model.addAttribute("list", pagina);
+ 		model.addAttribute("page",pageRender);
 		return "index";
 	}
 	
@@ -103,6 +111,7 @@ public class HabitacionController {
 	public String consulta(Model model) {
 		return "consulta";
 	}
+
 	
 	
 	@RequestMapping({"/catalogo","/"})

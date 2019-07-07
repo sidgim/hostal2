@@ -2,6 +2,7 @@ package com.hostal.springboot.app.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
 import com.hostal.springboot.app.commons.GenericServiceImp;
@@ -12,7 +13,7 @@ public class TipoPagoServiceImp extends GenericServiceImp<TipoPago, Integer>impl
 	@Autowired
 	private TipoPagoRepository tipoPagoRepository;
 	@Override
-	public CrudRepository<TipoPago, Integer> getRepository() {
+	public PagingAndSortingRepository<TipoPago, Integer> getRepository() {
 		return tipoPagoRepository;
 	}
 

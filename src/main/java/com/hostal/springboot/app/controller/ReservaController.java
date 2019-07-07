@@ -7,6 +7,9 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +31,7 @@ import com.hostal.springboot.app.services.HabitacionService;
 import com.hostal.springboot.app.services.HuespedService;
 import com.hostal.springboot.app.services.ReservaService;
 import com.hostal.springboot.app.services.TipoPagoService;
+import com.hostal.springboot.app.util.paginator.PageRender;
 
 @Controller
 
@@ -53,9 +57,13 @@ public class ReservaController {
 	
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/verReservas")
-	public String reserva(Model model) {
+	public String reserva(@RequestParam(name="page", defaultValue = "0") int page,Model model) {
+		Pageable pageRequest = PageRequest.of(page,3); 
+		Page<Reserva> pagina = reservaService.getAll(pageRequest);
+		PageRender<Reserva> pageRender = new PageRender<>("/verReservas",pagina);
 		model.addAttribute("habitaciones", habitacionService.getAll());
-		model.addAttribute("listR", reservaService.getAll());
+		model.addAttribute("listR",  pagina);
+		model.addAttribute("page",pageRender);
 		return "verReservas";
 	}
 	

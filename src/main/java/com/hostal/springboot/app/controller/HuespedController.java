@@ -6,6 +6,9 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hostal.springboot.app.model.Habitacion;
 import com.hostal.springboot.app.model.Huesped;
@@ -24,6 +28,7 @@ import com.hostal.springboot.app.model.Temporada;
 import com.hostal.springboot.app.services.HabitacionService;
 import com.hostal.springboot.app.services.HuespedService;
 import com.hostal.springboot.app.services.TemporadaService;
+import com.hostal.springboot.app.util.paginator.PageRender;
 
 @Controller
 public class HuespedController {
@@ -33,8 +38,13 @@ public class HuespedController {
 	
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/huesped")
-	public String huesped(Model model) {
-		model.addAttribute("listHuesped", huespedService.getAll());
+	public String huesped(@RequestParam(name="page", defaultValue = "0") int page,Model model) {
+		Pageable pageRequest = PageRequest.of(page,3); 
+		Page<Huesped> pagina = huespedService.getAll(pageRequest);
+		PageRender<Huesped> pageRender = new PageRender<>("/huesped",pagina);
+		model.addAttribute("listHuesped",  pagina);
+ 		model.addAttribute("page",pageRender);
+
 		return "huesped";
 	}
 	

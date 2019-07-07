@@ -30,14 +30,16 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/", "/css/**", "/js/**", "/img/**","/catalogo","/consulta","/huespedregister","/huespedreserva").permitAll()
-		/*.antMatchers("/reserva/**").hasAnyRole("USER")
-		.antMatchers("/save/**").hasAnyRole("USER")
-		.antMatchers("/formulario-huesped/**").hasAnyRole("ADMIN") */
+		/*.antMatchers("/ver/**").hasAnyRole("USER")*/
+		/*.antMatchers("/uploads/**").hasAnyRole("USER")*/
+		/*.antMatchers("/form/**").hasAnyRole("ADMIN")*/
+		/*.antMatchers("/eliminar/**").hasAnyRole("ADMIN")*/
+		/*.antMatchers("/factura/**").hasAnyRole("ADMIN")*/
 		.anyRequest().authenticated()
 		.and()
 		    .formLogin()
 		        .successHandler(successHandler)
-//		        .loginPage("/login")
+		        .loginPage("/login")
 		    .permitAll()
 		.and()
 		.logout().permitAll()

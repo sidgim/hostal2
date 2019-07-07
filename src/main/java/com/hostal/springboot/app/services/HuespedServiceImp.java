@@ -2,6 +2,7 @@ package com.hostal.springboot.app.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
 import com.hostal.springboot.app.commons.GenericServiceImp;
@@ -14,7 +15,7 @@ public class HuespedServiceImp extends GenericServiceImp<Huesped, Integer> imple
 	@Autowired
 	private HuespedRepository huespedRepository;
 	@Override
-	public CrudRepository<Huesped, Integer> getRepository() {
+	public PagingAndSortingRepository<Huesped, Integer> getRepository() {
 		return huespedRepository;
 	}
 

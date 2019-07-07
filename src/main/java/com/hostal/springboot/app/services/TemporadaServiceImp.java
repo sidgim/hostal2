@@ -2,6 +2,7 @@ package com.hostal.springboot.app.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
 import com.hostal.springboot.app.commons.GenericServiceImp;
@@ -12,7 +13,7 @@ public class TemporadaServiceImp extends GenericServiceImp<Temporada,Integer> im
 	@Autowired
 	private TemporadaRepository temporadaRepository;
 	@Override
-	public CrudRepository<Temporada, Integer> getRepository() {
+	public PagingAndSortingRepository<Temporada, Integer> getRepository() {
 		return temporadaRepository;
 	}
 

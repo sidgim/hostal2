@@ -2,6 +2,7 @@ package com.hostal.springboot.app.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
 import com.hostal.springboot.app.commons.GenericServiceImp;
@@ -14,7 +15,7 @@ public class ReservaServiceImp extends GenericServiceImp<Reserva, Integer> imple
 	private ReservaRepository reservaRepository;
 	
 	@Override
-	public CrudRepository<Reserva, Integer> getRepository() {
+	public PagingAndSortingRepository<Reserva, Integer> getRepository() {
 
 		return reservaRepository;
 	}

@@ -5,8 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.boot.model.relational.Database;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+
 
 public abstract class GenericServiceImp <T, ID extends Serializable> implements GenericService<T, ID> {
 	
@@ -32,6 +36,15 @@ public abstract class GenericServiceImp <T, ID extends Serializable> implements 
 		getRepository().findAll().forEach(c -> returnList.add(c));	
 		return returnList;
 	}
-	public abstract CrudRepository< T, ID> getRepository();
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Page<T> getAll(Pageable pageable){
+		
+		return getRepository().findAll(pageable);
+		
+	}
+	
+	public abstract PagingAndSortingRepository< T, ID> getRepository();
 
 }
