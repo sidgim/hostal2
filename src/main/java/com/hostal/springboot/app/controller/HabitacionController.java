@@ -48,7 +48,7 @@ public class HabitacionController {
 		model.addAttribute("list", habitacionService.getAll());
 		return "index";
 	}
-
+	
 	@Secured("ROLE_ADMIN")
 	@GetMapping(value = "/save/{id}")
 	public String Showsave(@PathVariable("id") Integer id, Model model) {
@@ -98,9 +98,10 @@ public class HabitacionController {
 	public String servicio(Model model) {
 		return "acercade";
 	}
-	@RequestMapping("/home")
-	public String home(Model model) {
-		return "home";
+	
+	@RequestMapping("/consulta")
+	public String consulta(Model model) {
+		return "consulta";
 	}
 	
 	

@@ -22,7 +22,7 @@ SessionFlashMapManager flashMapManager = new SessionFlashMapManager();
 		
 		FlashMap flashMap = new FlashMap();
 		
-		flashMap.put("success", "Hola " +authentication.getName()+ ", haz iniciado sesión con éxito!");
+		flashMap.put("success", "Hola " +authentication.getName()+ ", has iniciado sesión con éxito!");
 		
 		flashMapManager.saveOutputFlashMap(flashMap, request, response);
 		

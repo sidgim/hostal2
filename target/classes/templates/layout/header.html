@@ -8,7 +8,7 @@
 	th:href="@{/css/bootstrap.css}">
 	<link href="../static/css/style.css" rel="stylesheet"
 	th:href="@{/css/style.css}">
-<script src="https://code.iconify.design/1/1.0.2/iconify.min.js"></script>
+	<script src="https://code.iconify.design/1/1.0.2/iconify.min.js"></script>
 <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" /> 
 
 </head>
@@ -26,11 +26,11 @@
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav mr-auto">
 				<li  class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/home}">Home</a></li>
+						th:href="@{/consulta}">Home</a></li>
 				<li  class="nav-item"><a class="nav-link" href="#about"
 						th:href="@{/catalogo}">Catalogo</a></li>
 				
-					<li  class="nav-item"><a class="nav-link" href="#about"
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="#about"
 						th:href="@{/index}">Habitacion</a></li>
 
 					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="#about"

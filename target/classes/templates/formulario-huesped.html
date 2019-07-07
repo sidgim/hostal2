@@ -3,7 +3,8 @@
 <body>
 	<header th:replace="layout/header :: header"></header>
 	<div class="container">
-	<br>
+	<br><br><br><br><br>
+	
 		<h2>Agregar Huésped</h2>
 		<form action="#" sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/formulario-huesped}"
 			th:object="${huesped}" method="post">

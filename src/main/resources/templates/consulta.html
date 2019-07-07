@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layout/header :: head"></head>
+<body>
+	<header th:replace="layout/header :: header"></header>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<div class="container">
+		<br>
+		<section class="clean-block features white">
+			<div class="container">
+				<div class="block-heading">
+					<h2 class="text-info">Realiza tu reserva ahora...!</h2>
+				</div>
+				<section class="search-sec">
+					<div class="container">
+						<form action="#" method="post" novalidate="novalidate">
+						<div class="row">
+								<div class="col-lg-12">
+									<div class="row">
+										<label class="col-lg-2 col-md-3 col-sm-12 p-0" for="fechaEntradaConsulta">Fecha de Entrada</label>
+										<label class="col-lg-2 col-md-3 col-sm-12 p-0 mx-2" for="fechaSalidaConsulta">Fecha de Salida</label>
+										<label class="col-lg-2 col-md-3 col-sm-12 p-0" for="rut">Rut</label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="row">
+										<div class="col-lg-2 col-md-3 col-sm-12 p-0"> 
+											<input type="text" class="form-control"
+												id="fechaEntradaConsulta" name="tipo"></input>
+										</div>
+										<div class="col-lg-2 col-md-3 col-sm-12 p-0 mx-2">
+											<input type="text" class="form-control"
+												id="fechaSalidaConsulta" name="tipo"></input>
+										</div>
+										<div class="col-lg-2 col-md-3 col-sm-12 p-0">
+											<input id="rut" type="text" class="form-control search-slt"
+												placeholder="Ingrese rut">
+										</div>
+										<div class="col-lg-2 col-md-3 col-sm-12 p-0 ml-2">
+											<a href="huespedreserva"><button type="button" class="btn btn-danger wrn-btn">Buscar</button></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+			</div>
+		</section>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<footer th:replace="layout/footer :: footer"></footer>
+</body>
+<script>
+	$(document).ready(function() {
+		$('#buscador').select2();
+	});
+</script>
+<script th:src="@{/js/datepicker2.js}"></script>
+
+</html>
+

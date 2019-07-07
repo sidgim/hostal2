@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hostal.springboot.app.model.Habitacion;
 import com.hostal.springboot.app.model.Huesped;
+import com.hostal.springboot.app.model.Reserva;
 import com.hostal.springboot.app.model.Temporada;
 import com.hostal.springboot.app.services.HabitacionService;
 import com.hostal.springboot.app.services.HuespedService;
@@ -28,6 +29,7 @@ import com.hostal.springboot.app.services.TemporadaService;
 public class HuespedController {
 	@Autowired
 	private HuespedService huespedService;
+	
 	
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/huesped")
@@ -62,6 +64,15 @@ public class HuespedController {
 	public String delete (@PathVariable Integer id , Model model) {
 		huespedService.delete(id);
 			return "redirect:/huesped";
+	}
+	@RequestMapping("/huespedregister")
+	public String servicio(Model model) {
+		return "huespedregister";
+	}
+	
+	@RequestMapping("/huespedreserva")
+	public String reserva(Model model) {
+		return "huespedreserva";
 	}
 
 }
