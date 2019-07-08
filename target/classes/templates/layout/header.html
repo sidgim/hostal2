@@ -6,45 +6,60 @@
 <title th:text="Hostal"></title>
 <link href="../static/css/bootstrap.css" rel="stylesheet"
 	th:href="@{/css/bootstrap.css}">
-	<link href="../static/css/style.css" rel="stylesheet"
+<link href="../static/css/style.css" rel="stylesheet"
 	th:href="@{/css/style.css}">
-	<script src="https://code.iconify.design/1/1.0.2/iconify.min.js"></script>
-<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" /> 
+<script src="https://code.iconify.design/1/1.0.2/iconify.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
+
+<!-- Select2 -->
+<link href="../static/css/select2.css" rel="stylesheet"
+	th:href="@{/css/select2.css}">
+
+<!--datables CSS básico-->
+<link href="../DataTables/datatables.min.css" rel="stylesheet"
+	th:href="@{/DataTables/datatables.min.css}">
+<!--datables estilo bootstrap 4 CSS-->
+<link
+	href="../DataTables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css"
+	rel="stylesheet"
+	th:href="@{/DataTables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css}">
 
 </head>
 <body>
 
 	<header th:fragment="header">
-		<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+		<nav
+			class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
 			<a class="navbar-brand" href="/catalogo"><img
-					th:src="@{/img/logo.jpg}" src=".../static/img/logo.jpg" width="120"
-					height="70" alt=""></a>
+				th:src="@{/img/logo.jpg}" src=".../static/img/logo.jpg" width="120"
+				height="70" alt=""></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav mr-auto">
-				<li  class="nav-item"><a class="nav-link" href="#about"
+					<li class="nav-item"><a class="nav-link" href="#about"
 						th:href="@{/consulta}">Home</a></li>
-				<li  class="nav-item"><a class="nav-link" href="#about"
+					<li class="nav-item"><a class="nav-link" href="#about"
 						th:href="@{/catalogo}">Catalogo</a></li>
-				
-					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/index}">Habitacion</a></li>
 
-					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/huesped}">Huesped</a></li>
-						
-					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/verReservas}">Reserva</a></li>
-						
-						<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/usuario}">Usuario</a></li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						class="nav-link" href="#about" th:href="@{/index}">Habitacion</a></li>
+
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						class="nav-link" href="#about" th:href="@{/huesped}">Huesped</a></li>
+
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						class="nav-link" href="#about" th:href="@{/verReservas}">Reserva</a></li>
+
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						class="nav-link" href="#about" th:href="@{/usuario}">Usuario</a></li>
 				</ul>
 				<ul class="navbar-nav navbar-right">
 					<li sec:authorize="!isAuthenticated()"><a
-						class="btn btn-outline-primary" th:href="@{/login}">Iniciar Sesión</a></li>
+						class="btn btn-outline-primary" th:href="@{/login}">Iniciar
+							Sesión</a></li>
 
 					<li sec:authorize="isAuthenticated()" class="dropdown show"><a
 						class="btn btn-outline-primary dropdown-toggle" href="#"
@@ -90,7 +105,7 @@
 			Powered by <a href="https://projects.spring.io/spring-boot/">Spring
 				Boot</a> y <a href="http://www.thymeleaf.org">Thymeleaf</a>.
 		</p>
-	
+
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Bootstrap JS -->
 		<script th:src="@{/js/jquery-3.4.1.min.js}"></script>

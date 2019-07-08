@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/header :: head"></head>
 <body>
 	<header th:replace="layout/header :: header"></header>
-	<br><br><br><br><br>
-	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
 	<div sec:authorize="hasRole('ROLE_ADMIN')" class="container">
 		<br>
 		<div>
-			<a href="/verReservas" class="btn btn-primary">Listar Reservas</a> 
+			<a href="/verReservas" class="btn btn-primary">Listar Reservas</a>
 		</div>
 		<br>
 		<form action="#" th:action="@{/reserva}" th:object="${reservas}"
@@ -19,7 +24,7 @@
 					<option th:each="habitaciones : ${habitacion}"
 						th:value="${habitaciones.idHabitacion}"
 						th:text="${habitaciones.tipo}"></option>
-				</select> <label for="tipo">Huesped:</label> <br> <select
+				</select> <label for="tipo">Huesped:</label> <br> <select id="buscador"
 					class="form-control" th:name="HuespedId">
 					<option th:each="huesp : ${huespedes}"
 						th:value="${huesp.idHuesped}" th:text="${huesp.run}"></option>
@@ -52,12 +57,14 @@
 	<br>
 
 	<footer th:replace="layout/footer :: footer"></footer>
-			<script >
-	$(document).ready(function(){
-		$('#buscador').select2();
+	<script>
+	$(document).ready(function() {
+	    $('#buscador').select2();
 	});
-</script>
-<script th:src="@{/js/datepicker.js}"></script>
+	</script>
+	<script th:src="@{/js/datepicker.js}"></script>
+	<!-- Select2 -->
+	<script th:src="@{/js/select2.js}"></script>
 </body>
 </html>
 
