@@ -61,7 +61,7 @@ public class UsuarioController {
 		if(result.hasErrors()) {
 			return "redirect:/formulario-usuario/0";
 		}
-		
+			
 			String bcryptPassword = passwordEncoder.encode(temp);
 			usuario.setPassword(bcryptPassword);
 		
