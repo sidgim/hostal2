@@ -39,7 +39,7 @@ public class HuespedController {
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/huesped")
 	public String huesped(@RequestParam(name="page", defaultValue = "0") int page,Model model) {
-		Pageable pageRequest = PageRequest.of(page,3); 
+		Pageable pageRequest = PageRequest.of(page,100); 
 		Page<Huesped> pagina = huespedService.getAll(pageRequest);
 		PageRender<Huesped> pageRender = new PageRender<>("/huesped",pagina);
 		model.addAttribute("listHuesped",  pagina);

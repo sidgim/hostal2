@@ -36,7 +36,7 @@ public class UsuarioController {
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/usuario")
 	public String usuario(@RequestParam(name="page", defaultValue = "0") int page,Model model) {
-		Pageable pageRequest = PageRequest.of(page,3); 
+		Pageable pageRequest = PageRequest.of(page,100); 
 		Page<Usuario> pagina = usuarioService.getAll(pageRequest);
 		PageRender<Usuario> pageRender = new PageRender<>("/usuario",pagina);
 		model.addAttribute("listUsuario",pagina);

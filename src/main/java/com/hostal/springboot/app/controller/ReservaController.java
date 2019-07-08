@@ -59,7 +59,7 @@ public class ReservaController {
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/verReservas")
 	public String reserva(@RequestParam(name="page", defaultValue = "0") int page,Model model) {
-		Pageable pageRequest = PageRequest.of(page,3); 
+		Pageable pageRequest = PageRequest.of(page,100); 
 		Page<Reserva> pagina = reservaService.getAll(pageRequest);
 		PageRender<Reserva> pageRender = new PageRender<>("/verReservas",pagina);
 		model.addAttribute("habitaciones", habitacionService.getAll());

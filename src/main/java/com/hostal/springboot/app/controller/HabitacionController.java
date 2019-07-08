@@ -49,7 +49,7 @@ public class HabitacionController {
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/index")
 	public String habitacion(@RequestParam(name="page", defaultValue = "0") int page, Model model ) {
-		Pageable pageRequest = PageRequest.of(page,3); 
+		Pageable pageRequest = PageRequest.of(page,100); 
 		Page<Habitacion> pagina = habitacionService.getAll(pageRequest);
 		PageRender<Habitacion> pageRender = new PageRender<>("/index",pagina);
  		model.addAttribute("list", pagina);
