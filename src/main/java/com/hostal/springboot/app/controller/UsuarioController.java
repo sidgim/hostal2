@@ -57,15 +57,14 @@ public class UsuarioController {
 	@Secured("ROLE_ADMIN")
 	@PostMapping("/formulario-usuario")
 	public String save (@Valid Usuario usuario,BindingResult result, Model model , 
-			@RequestParam(value = "temporadaId", required = true) String temp) {
+			@RequestParam(defaultValue  = "id") String temp) {
 		if(result.hasErrors()) {
 			return "redirect:/formulario-usuario/0";
 		}
-		usuario.setPassword(temp);
-		for(int i=0; i<2; i++) {
-			String bcryptPassword = passwordEncoder.encode(usuario.getPassword());
-			System.out.println(bcryptPassword);
-		}
+		
+			String bcryptPassword = passwordEncoder.encode(temp);
+			usuario.setPassword(bcryptPassword);
+		
 		usuarioService.save(usuario);
 		return "redirect:/usuario";
 	}
