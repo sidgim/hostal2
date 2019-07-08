@@ -67,4 +67,5 @@ public class RoleController {
 		roleService.save(role);
 		return "redirect:/usuario";
 	}
+		
 }
