@@ -33,6 +33,7 @@ import com.hostal.springboot.app.services.ReservaService;
 import com.hostal.springboot.app.services.TipoPagoService;
 import com.hostal.springboot.app.util.paginator.PageRender;
 
+
 @Controller
 
 public class ReservaController {

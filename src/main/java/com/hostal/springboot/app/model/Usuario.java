@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="users")
 public class Usuario implements Serializable{
-
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -25,7 +25,7 @@ public class Usuario implements Serializable{
 	@Column(length = 45 ,unique = true)
 	private String username;
 	
-	@Column(length = 60)
+	@Column(length = 200)
 	private String password;
 	
 	private Boolean enable;
@@ -66,6 +66,6 @@ public class Usuario implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	
 
 }
