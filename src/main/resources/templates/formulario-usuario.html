@@ -9,7 +9,7 @@
 		<form action="#" sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/formulario-usuario}"
 			th:object="${usuario}" method="post">
 			<input type="hidden" th:field="*{id}" name="id" id="id">
-
+			
 			
 			<div class="form-group">
 				<label for="nombre">Nombre Usuario</label> <input type="text"
@@ -20,6 +20,11 @@
 			<div class="form-group">
 				<label for="nombre">Contraseña</label> <input type="text"
 					class="form-control" id="tipo" th:field="*{password}" th:name="id" required>
+			</div>
+				<div class="form-group">
+				<label for="nombre">enable</label> <input type="text"
+					class="form-control" id="tipo" th:field="*{enable}" name="tipo" required>
+					
 			</div>
 
 		

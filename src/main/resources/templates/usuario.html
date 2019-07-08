@@ -25,6 +25,8 @@
 						<th scope="col"  style="text-align: center">contraseña</th>
 						<th  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Editar</th>
 						<th  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Eliminar</th>
+						<th  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Role</th>
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -41,12 +43,15 @@
 							th:href="@{/DeleteUsuario/{id}(id=${usuario.id})}"><span
 								class="iconify delete" data-icon="ic:baseline-delete-forever"
 								data-inline="false"></span></a></td>
+								
+								<td  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')"><a href="/role/0"><span
+								class="iconify edit" data-icon="fa-regular:edit"
+								data-inline="false"></span></a></td>
 					</tr>
 				</tbody>
 			</table>
 			<nav th:replace="paginator-nav :: paginator"></nav>
 		</div>
-	</div>
 	<br>
 	<br>
 	<br>

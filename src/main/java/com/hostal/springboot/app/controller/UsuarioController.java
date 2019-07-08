@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +25,7 @@ import com.hostal.springboot.app.model.Usuario;
 import com.hostal.springboot.app.services.UsuariosService;
 import com.hostal.springboot.app.util.paginator.PageRender;
 
+@SpringBootApplication
 @Controller
 public class UsuarioController {
 	@Autowired
@@ -61,10 +63,11 @@ public class UsuarioController {
 		if(result.hasErrors()) {
 			return "redirect:/formulario-usuario/0";
 		}
-		
+			
 			String bcryptPassword = passwordEncoder.encode(temp);
 			usuario.setPassword(bcryptPassword);
-		
+			System.out.println(usuario);
+
 		usuarioService.save(usuario);
 		return "redirect:/usuario";
 	}
