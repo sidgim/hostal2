@@ -32,7 +32,7 @@
 			class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
 			<a class="navbar-brand" href="/catalogo"><img
 				th:src="@{/img/logo.png}" src=".../static/img/logo.png" width="140"
-				height="70" alt=""></a>
+				height="60" alt=""></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -58,11 +58,11 @@
 				</ul>
 				<ul class="navbar-nav navbar-right">
 					<li sec:authorize="!isAuthenticated()"><a
-						class="btn btn-outline-primary" th:href="@{/login}">Iniciar
+						class="btn btn-outline-info" th:href="@{/login}">Iniciar
 							Sesión</a></li>
 
 					<li sec:authorize="isAuthenticated()" class="dropdown show"><a
-						class="btn btn-outline-primary dropdown-toggle" href="#"
+						class="btn btn-outline-info dropdown-toggle" href="#"
 						role="button" id="dropdownMenuLink" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false"><span
 							sec:authentication="name"></span></a>
