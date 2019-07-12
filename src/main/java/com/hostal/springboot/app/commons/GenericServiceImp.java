@@ -301,7 +301,7 @@ public abstract class GenericServiceImp <T, ID extends Serializable> implements 
 				fechasalidaValue.setExtraParagraphSpace(5f);
 				table.addCell(fechasalidaValue);
 				
-				PdfPCell tpagoValue = new PdfPCell (new Paragraph(""+(reserva.getTipoPago()), tableBody));
+				PdfPCell tpagoValue = new PdfPCell (new Paragraph(""+(reserva.getTipoPago().getTipo()), tableBody));
 				tpagoValue.setBorderColor(BaseColor.BLACK);
 				tpagoValue.setPaddingLeft(10);
 				tpagoValue.setHorizontalAlignment(Element.ALIGN_CENTER);
