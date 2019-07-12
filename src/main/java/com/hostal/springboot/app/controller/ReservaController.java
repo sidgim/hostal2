@@ -88,7 +88,7 @@ public class ReservaController {
 		return "reserva";
 	}
 	
-	@Secured("ROLE_ADMIN")
+	@Secured("ROLE_USER")
 	@PostMapping(value = "/reserva")
 	public String save (@Valid Reserva reserva,BindingResult result, Model model, @RequestParam(value = "HabitacionId", required = true) int re,
 			@RequestParam(value = "HuespedId", required = true) int cli,@RequestParam(value = "tipoPagoId", required = true) int tip
