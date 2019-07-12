@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hostal.springboot.app.model.Habitacion;
 import com.hostal.springboot.app.model.Huesped;
@@ -36,7 +37,7 @@ public class HuespedController {
 	private HuespedService huespedService;
 	
 	
-	@Secured("ROLE_ADMIN")
+	@Secured("ROLE_USER")
 	@RequestMapping("/huesped")
 	public String huesped(@RequestParam(name="page", defaultValue = "0") int page,Model model) {
 		Pageable pageRequest = PageRequest.of(page,100); 
@@ -48,7 +49,7 @@ public class HuespedController {
 		return "huesped";
 	}
 	
-	@Secured("ROLE_ADMIN")
+	@Secured("ROLE_USER")
 	@GetMapping("/formulario-huesped/{id}")
 	public String Showsave(@PathVariable ("id") Integer id, Model model) {
 
@@ -60,15 +61,19 @@ public class HuespedController {
 		return "formulario-huesped";
 	}
 	
-	@Secured("ROLE_ADMIN")
+	@Secured("ROLE_USER")
 	@PostMapping("/formulario-huesped")
-	public String save (@Valid Huesped huesped,BindingResult result, Model model ) {
+	public String save (@Valid Huesped huesped,BindingResult result, Model model,RedirectAttributes flash ) {
 		if(result.hasErrors()) {
+			flash.addFlashAttribute("error", "favor de ingresar correctamente los datos");
 			return "redirect:/formulario-huesped/0";
 		}
 		huespedService.save(huesped);	
+		flash.addFlashAttribute("success", "Se ha agregado con éxito al huesped");
+
 		return "redirect:/huesped";
 	}
+	
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/delete1/{id}")
 	public String delete (@PathVariable Integer id , Model model) {

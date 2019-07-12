@@ -10,12 +10,15 @@
 	<br>
 	<br>
 
-	<div sec:authorize="hasRole('ROLE_ADMIN')" class="container">
+	<div sec:authorize="hasRole('ROLE_USER')" class="container">
 		<br>
 		<div>
 			<a href="/verReservas" class="btn btn-primary">Listar Reservas</a>
 		</div>
+		
 		<br>
+		<div class="alert alert-danger text-center" th:if="${error != null}" th:text="${error}" role="alert"></div>
+		
 		<form action="#" th:action="@{/reserva}" th:object="${reservas}"
 			method="post">
 			<div class="form-group">

@@ -6,7 +6,9 @@
 	<br><br><br><br><br>
 	
 		<h2>Agregar Huésped</h2>
-		<form action="#" sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/formulario-huesped}"
+		<div class="alert alert-danger text-center" th:if="${error != null}" th:text="${error}" role="alert"></div>
+		
+		<form action="#" sec:authorize="hasRole('ROLE_USER')" th:action="@{/formulario-huesped}"
 			th:object="${huesped}" method="post">
 			<input type="hidden" th:field="*{idHuesped}" name="id" id="id">
 
@@ -22,12 +24,12 @@
 
 			<div class="form-group">
 				<label for="nombre">Apellidos</label> <input type="text"
-					class="form-control" id="tipo" th:field="*{apellido}" name="tipo" required>
+					class="form-control" id="tipo" th:field="*{apellido}" name="tipo" >
 			</div>
 
 			<div class="form-group">
 				<label for="nombre">Correo Eléctronico</label> 
-				<input type="email"class="form-control" id="tipo" th:field="*{correo}" name="tipo" required>
+				<input type="email"class="form-control" id="tipo" th:field="*{correo}" name="tipo" >
 					
 			</div>
 

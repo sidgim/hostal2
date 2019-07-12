@@ -6,14 +6,16 @@
 	<br><br><br><br><br>
 	
 		<h2>Agregar Usuario</h2>
-		<form action="#" sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/formulario-usuario}"
+		<div class="alert alert-danger text-center" th:if="${error != null}" th:text="${error}" role="alert"></div>
+		
+		<form action="#" sec:authorize="hasRole('ROLE_USER')" th:action="@{/formulario-usuario}"
 			th:object="${usuario}" method="post">
 			<input type="hidden" th:field="*{id}" name="id" id="id">
 			
 			
 			<div class="form-group">
 				<label for="nombre">Nombre Usuario</label> <input type="text"
-					class="form-control" id="tipo" th:field="*{username}" name="tipo" required>
+					class="form-control" id="tipo" th:field="*{username}" name="tipo" >
 					
 			</div>
 

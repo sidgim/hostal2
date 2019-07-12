@@ -17,6 +17,8 @@
 					class="iconify add" data-icon="ic:baseline-add-circle-outline"
 					data-inline="false"></span></a>
 			</h2>
+			
+			<div class="alert alert-success text-center" th:if="${success != null}" th:text="${success}" role="alert"></div>
 			<table id="example" class="table  table-bordered table-striped">
 				<thead class="thead-dark">
 					<tr>

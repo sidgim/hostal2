@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hostal.springboot.app.model.Habitacion;
 import com.hostal.springboot.app.model.Huesped;
@@ -46,7 +47,7 @@ public class ReservaController {
 	@Autowired
 	private HuespedService huespedService;
 
-	@Secured("ROLE_ADMIN")
+	@Secured("ROLE_USER")
 	@GetMapping(value = "/list")
 	public String list(Model model) {
 		List<Reserva> lista = reservaService.getAll();
@@ -56,7 +57,7 @@ public class ReservaController {
 		return "reservalist";
 	}
 	
-	@Secured("ROLE_ADMIN")
+	@Secured("ROLE_USER")
 	@RequestMapping("/verReservas")
 	public String reserva(@RequestParam(name="page", defaultValue = "0") int page,Model model) {
 		Pageable pageRequest = PageRequest.of(page,100); 
@@ -68,7 +69,7 @@ public class ReservaController {
 		return "verReservas";
 	}
 	
-	@Secured("ROLE_ADMIN")
+	@Secured("ROLE_USER")
 	@GetMapping(value = "/reserva/{id}")
 	public String Showsave(@PathVariable("id") Integer id, Model model) {
 		if (id != null && id != 0) {
@@ -90,8 +91,10 @@ public class ReservaController {
 	@Secured("ROLE_ADMIN")
 	@PostMapping(value = "/reserva")
 	public String save (@Valid Reserva reserva,BindingResult result, Model model, @RequestParam(value = "HabitacionId", required = true) int re,
-			@RequestParam(value = "HuespedId", required = true) int cli,@RequestParam(value = "tipoPagoId", required = true) int tip) {
+			@RequestParam(value = "HuespedId", required = true) int cli,@RequestParam(value = "tipoPagoId", required = true) int tip
+			,RedirectAttributes flash) {
 		if(result.hasErrors()) {
+			flash.addFlashAttribute("error", "favor de ingresar correctamente los datos");
 			return "redirect:/reserva/0";
 		}
 		Habitacion h = habitacionService.get(re);
@@ -101,8 +104,10 @@ public class ReservaController {
 		reserva.setTipoPago(t);
 		reserva.setHabitacion(h);
 		reservaService.save(reserva);
-		
+		flash.addFlashAttribute("success", "Se ha agregado con éxito la reserva");
+
 		return "redirect:/verReservas";
+		
 	}
 	
 	@Secured("ROLE_ADMIN")

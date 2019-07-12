@@ -1,8 +1,8 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/header :: head">
 <meta charset="UTF-8" />
 </head>
-<body>
+<body sec:authorize="hasRole('ROLE_USER')">
 	<header th:replace="layout/header :: header"></header>
 	<br>
 	<br>
@@ -22,6 +22,8 @@
 				</h2>
 			</div>
 			<br>
+						<div class="alert alert-success text-center" th:if="${success != null}" th:text="${success}" role="alert"></div>
+			
 			<table id="example" class="table table-bordered table-striped">
 				<thead class="thead-dark">
 					<tr>
@@ -34,7 +36,7 @@
 						<th style="text-align: center">Nombre</th>
 						<th style="text-align: center">Apellido</th>
 						<th style="text-align: center">Editar</th>
-						<th style="text-align: center">Eliminar</th>
+						<th sec:authorize="hasRole('ROLE_ADMIN')" style="text-align: center">Eliminar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -50,7 +52,7 @@
 						<td style="text-align: center"><a th:href="@{/reserva/{id}(id=${reserva.idReserva})}"><span
 								class="iconify edit" data-icon="fa-regular:edit"
 								data-inline="false"></span></a></td>
-						<td style="text-align: center"><a th:href="@{/deletes/{id}(id=${reserva.idReserva})}"><span
+						<td sec:authorize="hasRole('ROLE_ADMIN')" style="text-align: center"><a th:href="@{/deletes/{id}(id=${reserva.idReserva})}"><span
 								class="iconify delete" data-icon="ic:baseline-delete-forever"
 								data-inline="false"></span></a></td>
 					</tr>

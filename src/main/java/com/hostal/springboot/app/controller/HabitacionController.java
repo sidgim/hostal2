@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hostal.springboot.app.model.Habitacion;
 import com.hostal.springboot.app.model.Temporada;
@@ -46,7 +47,7 @@ public class HabitacionController {
 	private TemporadaService temporadaService;
 	
 	
-	@Secured("ROLE_ADMIN")
+	@Secured("ROLE_USER")
 	@RequestMapping("/index")
 	public String habitacion(@RequestParam(name="page", defaultValue = "0") int page, Model model ) {
 		Pageable pageRequest = PageRequest.of(page,100); 
@@ -73,7 +74,8 @@ public class HabitacionController {
 	
 	@Secured("ROLE_ADMIN")
 	@PostMapping(value = "/save")
-	public String save (@Valid Habitacion habitacion,BindingResult result, Model model , @RequestParam(value = "temporadaId", required = true) Integer temp) {
+	public String save (@Valid Habitacion habitacion,BindingResult result, Model model , @RequestParam(value = "temporadaId", required = true) Integer temp
+			,RedirectAttributes flash){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if(auth != null) {
 			logger.info("Usuario identificado: ".concat(auth.getName()));
@@ -92,6 +94,7 @@ public class HabitacionController {
 		Temporada t = temporadaService.get(temp);
 		habitacion.setTemporada(t);
 		habitacionService.save(habitacion);	
+		flash.addFlashAttribute("success", "Se ha agregado con éxito una habitación");
 		return "redirect:/index";
 		
 	}

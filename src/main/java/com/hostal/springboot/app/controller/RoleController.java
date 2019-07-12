@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hostal.springboot.app.model.Habitacion;
 import com.hostal.springboot.app.model.Role;
@@ -56,7 +57,7 @@ public class RoleController {
 	@Secured("ROLE_ADMIN")
 	@PostMapping("/role")
 	public String save (@Valid Role role,BindingResult result, Model model , 
-			@RequestParam(value  = "id",required = true) Integer temp) {
+			@RequestParam(value  = "id",required = true) Integer temp,RedirectAttributes flash) {
 		if(result.hasErrors()) {
 			return "redirect:/role/0";
 		}
@@ -65,6 +66,8 @@ public class RoleController {
 		
 		role.setUsuario(u);
 		roleService.save(role);
+		flash.addFlashAttribute("success", "Se ha agregado con éxito el rol");
+
 		return "redirect:/usuario";
 	}
 		
