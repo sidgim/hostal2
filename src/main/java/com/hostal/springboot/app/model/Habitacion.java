@@ -23,7 +23,7 @@ public class Habitacion implements Serializable {
 	private int numero;
 	
 	@NotNull
-	private double precio;
+	private int precio;
 	
 	@NotEmpty
 	private String tipo;
@@ -60,11 +60,11 @@ public class Habitacion implements Serializable {
 		this.numero = numero;
 	}
 
-	public double getPrecio() {
+	public int getPrecio() {
 		return this.precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
 

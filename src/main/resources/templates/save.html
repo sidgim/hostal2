@@ -27,8 +27,12 @@
 					class="form-control" id="tipo" th:field="*{precio}" name="tipo" required> 
 			</div>
 			<div class="form-group">
-				<label for="nombre">Tipo Habitación</label> <input type="text"
-					class="form-control" id="tipo" th:field="*{tipo}" name="tipo" required>
+			<label for="nombre">Tipo habitación:</label> <br>
+				<select class="form-control" id="tipo" th:field="*{tipo}" name="tipo" required>
+					<option th:value="Simple" th:text="Simple"></option>
+					<option th:value="Doble" th:text="Doble"></option>
+					<option th:value="Matrimonial" th:text="Matrimonial"></option>
+				</select>
 			</div>
 
 

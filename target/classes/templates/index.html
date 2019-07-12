@@ -17,7 +17,7 @@
 					class="iconify add" data-icon="ic:baseline-add-circle-outline"
 					data-inline="false"></span></a>
 			</h2>
-			<table id="tabla" class="table  table-bordered table-striped">
+			<table id="example" class="table  table-bordered table-striped">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col"  style="text-align: center">#</th>
@@ -46,7 +46,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<nav th:replace="paginator-nav :: paginator"></nav>
+			<!-- <nav th:replace="paginator-nav :: paginator"></nav> -->
 		</div>
 	</div>
 	<br>
@@ -62,9 +62,14 @@
 	<br>
 	<br>
 	<footer th:replace="layout/footer :: footer"></footer>
+	<!-- datatables JS -->
+	<!-- <script type="text/javascript" src="datatables/datatables.min.js"></script> -->
+	<script th:src="@{/js/datatables.min.js}"></script>
+	<!-- <script type="text/javascript" src="datatable-language.js"></script> -->
+	<script th:src="@{/js/datatable-language.js}"></script>
 </body>
-<script >
+<!-- <script >
 	$(document).ready(function(){
 		$('#tabla').DataTable();
-	});</script>
+	});</script> -->
 </html>

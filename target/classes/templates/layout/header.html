@@ -42,13 +42,13 @@
 					<li class="nav-item"><a class="nav-link" href="#about"
 						th:href="@{/consulta}">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/catalogo}">Catalogo</a></li>
+						th:href="@{/catalogo}">Catálogo</a></li>
 
 					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
-						class="nav-link" href="#about" th:href="@{/index}">Habitacion</a></li>
+						class="nav-link" href="#about" th:href="@{/index}">Habitación</a></li>
 
 					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
-						class="nav-link" href="#about" th:href="@{/huesped}">Huesped</a></li>
+						class="nav-link" href="#about" th:href="@{/huesped}">Huésped</a></li>
 
 					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
 						class="nav-link" href="#about" th:href="@{/verReservas}">Reserva</a></li>

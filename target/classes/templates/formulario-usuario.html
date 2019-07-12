@@ -1,39 +1,3 @@
-<<<<<<< HEAD
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="layout/header :: head"></head>
-<body>
-	<header th:replace="layout/header :: header"></header>
-	<div class="container">
-	<br><br><br><br><br>
-	
-		<h2>Agregar Usuario</h2>
-		<form action="#" sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/formulario-usuario}"
-			th:object="${usuario}" method="post">
-			<input type="hidden" th:field="*{id}" name="id" id="id">
-
-			
-			<div class="form-group">
-				<label for="nombre">Nombre Usuario</label> <input type="text"
-					class="form-control" id="tipo" th:field="*{username}" name="tipo" required>
-					
-			</div>
-
-			<div class="form-group">
-				<label for="nombre">Contraseña</label> <input type="text"
-					class="form-control" id="tipo" th:field="*{password}" th:name="id" required>
-			</div>
-
-		
-			<br>
-			<button type="submit" class="btn btn-success">Guardar <span class="iconify add" data-icon="ic:round-save-alt" data-inline="false"></span></button>
-			<a href="/usuario" class="btn btn-danger">Cancelar <span class="iconify" data-icon="topcoat:cancel" data-inline="false"></span></a>
-		</form>
-	</div>
-	<br>
-	<br>
-	<footer th:replace="layout/footer :: footer"></footer>
-</body>
-=======
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/header :: head"></head>
 <body>
@@ -73,5 +37,4 @@
 	<br>
 	<footer th:replace="layout/footer :: footer"></footer>
 </body>
->>>>>>> 73a504b46ede3b675cc2402346b138ecee34c556
 </html>

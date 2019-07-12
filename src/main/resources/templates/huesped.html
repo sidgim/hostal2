@@ -1,6 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/header :: head">
+<meta charset="UTF-8" />
 </head>
 <body>
 	<header th:replace="layout/header :: header"></header>
@@ -12,8 +13,8 @@
 	<div sec:authorize="hasRole('ROLE_ADMIN')" class="container">
 		<br>
 		<h2>
-			Huesped <a href="/formulario-huesped/0" class="btn btn-primary">Agregar
-				Huesped <span class="iconify add"
+			Huésped <a href="/formulario-huesped/0" class="btn btn-primary">Agregar
+				Huésped <span class="iconify add"
 				data-icon="ant-design:user-add-outline" data-inline="false"></span>
 			</a>
 		</h2>
@@ -26,8 +27,8 @@
 								<th scope="col" style="text-align: center">Nombre</th>
 								<th scope="col" style="text-align: center">Apellido</th>
 								<th scope="col" style="text-align: center">Correo
-									Eléctronico</th>
-								<th scope="col" style="text-align: center">Telefono</th>
+									Electrónico</th>
+								<th scope="col" style="text-align: center">Teléfono</th>
 								<th scope="col" style="text-align: center">Editar</th>
 								<th scope="col" style="text-align: center">Eliminar</th>
 							</tr>
@@ -54,6 +55,7 @@
 					</table>
 				</div>
 			</div>
+			<div style="float:right">Generar Reporte <a th:href="@{'/ReporteHuespedes'}" style="float:rigth;"><img th:src="@{img/dpdf.png}" style="width:120px;"></a></div>
 		</div>
 	<br>
 	<br>

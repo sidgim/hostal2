@@ -1,6 +1,6 @@
-<<<<<<< HEAD
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/header :: head">
+<meta charset="UTF-8" />
 </head>
 <body>
 	<header th:replace="layout/header :: header"></header>
@@ -18,80 +18,12 @@
 					class="iconify add" data-icon="ic:baseline-add-circle-outline"
 					data-inline="false"></span></a>
 			</h2>
-			<table id="tabla" class="table  table-bordered table-striped">
+			<table id="example" class="table  table-bordered table-striped">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col"  style="text-align: center">#</th>
-						<th scope="col"  style="text-align: center">nombre</th>
-						<th scope="col"  style="text-align: center">contraseña</th>
-						<th  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Editar</th>
-						<th  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Eliminar</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="usuario : ${listUsuario}">
-
-
-						<td th:text="${usuario.id}">
-						<td th:text="${usuario.username}">
-						<td th:text="${usuario.password}">
-						<td  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/formulario-usuario/{id}(id=${usuario.id})}"><span
-								class="iconify edit" data-icon="fa-regular:edit"
-								data-inline="false"></span></a></td>
-						<td  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')"><a
-							th:href="@{/DeleteUsuario/{id}(id=${usuario.id})}"><span
-								class="iconify delete" data-icon="ic:baseline-delete-forever"
-								data-inline="false"></span></a></td>
-					</tr>
-				</tbody>
-			</table>
-			<nav th:replace="paginator-nav :: paginator"></nav>
-		</div>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<footer th:replace="layout/footer :: footer"></footer>
-</body>
-<script >
-	$(document).ready(function(){
-		$('#tabla').DataTable();
-	});</script>
-=======
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="layout/header :: head">
-</head>
-<body>
-	<header th:replace="layout/header :: header"></header>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="container">
-		<br>
-
-
-			<h2 sec:authorize="hasRole('ROLE_ADMIN')">
-				Usuario <a href="/formulario-usuario/0" class="btn btn-primary">Agregar <span
-					class="iconify add" data-icon="ic:baseline-add-circle-outline"
-					data-inline="false"></span></a>
-			</h2>
-			<table id="tabla" class="table  table-bordered table-striped">
-				<thead class="thead-dark">
-					<tr>
-						<th scope="col"  style="text-align: center">#</th>
-						<th scope="col"  style="text-align: center">nombre</th>
-						<th scope="col"  style="text-align: center">contraseña</th>
+						<th scope="col"  style="text-align: center">Nombre</th>
+						<th scope="col"  style="text-align: center">Contraseña</th>
 						<th  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Editar</th>
 						<th  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Eliminar</th>
 						<th  style="text-align: center" sec:authorize="hasRole('ROLE_ADMIN')" scope="col">Role</th>
@@ -119,7 +51,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<nav th:replace="paginator-nav :: paginator"></nav>
+			<!-- <nav th:replace="paginator-nav :: paginator"></nav> -->
 		</div>
 	<br>
 	<br>
@@ -134,10 +66,14 @@
 	<br>
 	<br>
 	<footer th:replace="layout/footer :: footer"></footer>
+	<!-- datatables JS -->
+	<!-- <script type="text/javascript" src="datatables/datatables.min.js"></script> -->
+	<script th:src="@{/js/datatables.min.js}"></script>
+	<!-- <script type="text/javascript" src="datatable-language.js"></script> -->
+	<script th:src="@{/js/datatable-language.js}"></script>
 </body>
 <script >
 	$(document).ready(function(){
 		$('#tabla').DataTable();
 	});</script>
->>>>>>> 73a504b46ede3b675cc2402346b138ecee34c556
 </html>
